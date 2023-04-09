@@ -17,9 +17,14 @@
   position: fixed;
   padding-left:80px;
   transition-delay: 0.1s;
+  padding-top: 15px;
 }
 .sidenav_text{
   display: inline-block;
+  font-size:14px;
+  font-family: Exo, sans-serif!important;
+  font-weight: 800;
+  /* font-size: 0px; */
 }
 #sidenav_text1{
   visibility: hidden;
@@ -34,6 +39,9 @@
   visibility: hidden;
 }
 #sidenav_text5{
+  visibility: hidden;
+}
+#sidenav_text6{
   visibility: hidden;
 }
 

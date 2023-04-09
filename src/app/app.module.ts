@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonService } from './common.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './shared/nav/nav.component';
 import { FactureComponent } from './core/facture/facture.component';
 import { FactureAvoirComponent } from './core/facture-avoir/facture-avoir.component';
@@ -22,8 +21,15 @@ import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-del
 import { LivreurService } from './shared/services/livreur.service';
 import { PaiementService } from './shared/services/paiement.service';
 import { PaiementComponent } from './core/paiement/paiement.component';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
+// import { MatFormField } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CheckoutComponent } from './core/checkout/checkout.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 @NgModule({
@@ -36,12 +42,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RetourComponent,
     SidebarComponent,
     TrackDeliveryComponent,
-    PaiementComponent
+    PaiementComponent,
+    CheckoutComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, MatStepperModule, BrowserAnimationsModule
+    BrowserModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
+    MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule 
   ],
-  providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,PaiementService,
+  providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
+    PaiementService,MatDatepickerModule,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

@@ -30,6 +30,7 @@ export class SidebarComponent {
       document.getElementById("sidenav_text3").style.visibility = "visible";
       document.getElementById("sidenav_text4").style.visibility = "visible";
       document.getElementById("sidenav_text5").style.visibility = "visible";
+      document.getElementById("sidenav_text6").style.visibility = "visible";
     }else{
       document.getElementById("mySidenav").style.width = "60px";
       document.getElementById("sidenav_btn").style.paddingLeft = "80px";
@@ -38,6 +39,7 @@ export class SidebarComponent {
       document.getElementById("sidenav_text3").style.visibility = "hidden";
       document.getElementById("sidenav_text4").style.visibility = "hidden";
       document.getElementById("sidenav_text5").style.visibility = "hidden";
+      document.getElementById("sidenav_text6").style.visibility = "hidden";
     }
   }
 

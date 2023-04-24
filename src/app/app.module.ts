@@ -30,8 +30,6 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +45,8 @@ import { MatNativeDateModule } from '@angular/material/core';
   ],
   imports: [
     BrowserModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
-    MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule 
+    MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
+    FormsModule
   ],
   providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,

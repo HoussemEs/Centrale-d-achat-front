@@ -12,10 +12,11 @@ export class FactureComponent {
   listFactures:any=[];
   sFacture;
   plusIcon = faPlusCircle;
-  
+
   constructor(private factureService: FactureServiceService) {   }
 
   ngOnInit(){
     this.factureService.getFactures().subscribe(data => this.listFactures = data);
   }
+
 }

@@ -10,7 +10,7 @@ export class PaiementService {
   constructor(private http: HttpClient) { }
 
   getAllPaiements(){
-    return this.http.get("http://localhost:8099/billing/payments-f") .pipe(map((response: Response) => response))
+    return this.http.get("http://localhost:8099/billing/payments") .pipe(map((response: Response) => response))
   }
 
 }

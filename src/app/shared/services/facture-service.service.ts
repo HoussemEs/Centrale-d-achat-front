@@ -9,7 +9,7 @@ export class FactureServiceService {
 
 constructor(private http: HttpClient) { }
 
-    saveTodo(facture, idCommande){
+    saveFacture(facture, idCommande){
       return this.http.post("http://localhost:8099/facture/add-facture/"+idCommande, facture) .pipe(map((response: Response) =>response.json()))
     }
 

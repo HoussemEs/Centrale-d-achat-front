@@ -5,6 +5,7 @@ import { PaiementComponent } from './core/paiement/paiement.component';
 import { DeliveryComponent } from './core/delivery/delivery.component';
 import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-delivery.component';
 import { CheckoutComponent } from './core/checkout/checkout.component';
+import { DetailComponent } from './core/facture/detail/detail.component';
 
 const routes: Routes = [
   {path:"facture",component:FactureComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:"delivery",component:DeliveryComponent},
   {path:"paiement",component:PaiementComponent},
   {path:"tracking",component:TrackDeliveryComponent},
-  {path:"checkout",component:CheckoutComponent}
+  {path:"checkout",component:CheckoutComponent},
+  {path:"facture/detail/:factid",component:DetailComponent}
   // {path:"/home",component:ProductsComponent},
   // {path:"/home",component:ProductsComponent},
 ];

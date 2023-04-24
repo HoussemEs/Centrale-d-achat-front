@@ -18,11 +18,15 @@
     <td class="td number">{{paiement.paiementId}}</td>
     <td class="td number">{{paiement.factureId}}</td>
     <td class="td number">{{paiement.clientName}}</td>
-    <td class="td number">{{paiement.methodePaiement}}</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==1">Cash</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==2">Visa ou MasterCard</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==3">Paypal</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==4">D-17</td>
     <td class="td number">{{paiement.cardNumber}}</td>
     <td class="td number">{{paiement.expirationDate}}</td>
     <td class="td number">{{paiement.cvv}}</td>
-    <td class="td number">{{paiement.etatPaiement}}</td>
+    <td class="td number" *ngIf="paiement.etatPaiement==1">Réglée</td>
+    <td class="td number" style="color:red; font-weight: 700" *ngIf="paiement.etatPaiement==0">Manquant</td>
     <td class="td number">{{paiement.datePaiement}}</td>
     <td class="td btn"></td>
     <td class="td btn"></td>

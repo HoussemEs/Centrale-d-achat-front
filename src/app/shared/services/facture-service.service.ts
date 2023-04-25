@@ -17,6 +17,15 @@ constructor(private http: HttpClient) { }
       return this.http.get("http://localhost:8099/facture/factures") .pipe(map((response: Response) => response))
     }
 
+    getDetailFacture(idFacture : any){
+      return this.http.get("http://localhost:8099/lignep/get-history/"+idFacture) .pipe(map((response: Response) => response))
+    }
+
+
+    getDetailCommande(idFact: any) {
+      return this.http.get("http://localhost:8099/facture/detail/"+idFact) .pipe(map((response: Response) => response))
+    }
+
     getFacturesByDate(dateFrom,dateTo){
       return this.http.get("http://localhost:8099/facture/get-facture-by-date/"+dateFrom+"/"+dateTo).pipe(map((response: Response) => response))
     }

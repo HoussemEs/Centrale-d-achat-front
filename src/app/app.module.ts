@@ -29,6 +29,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CommonModule } from '@angular/common';
+import { DetailComponent } from './core/facture/detail/detail.component';
+
+
 
 @NgModule({
   declarations: [
@@ -41,10 +45,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     SidebarComponent,
     TrackDeliveryComponent,
     PaiementComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    DetailComponent
   ],
   imports: [
-    BrowserModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
+    BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
     FormsModule
   ],

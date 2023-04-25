@@ -1,6 +1,20 @@
 <p>detail works!</p>
 <div style="padding-left: 150px;">
-<input name="first" [value]="first" id="first" (keyup)="changeFirst()" ngModel>
+<!--<input name="first" [(ngModel)]="first" id="first" ngModel>-->
 
-<p style="color:black"> You entered {{first}}</p>
+<p style="color:black"> Facture au nom de : <b>{{detailGeneral.nomPrenomClient}}</b><br>Fait le : <b>{{detailGeneral.dateCommmande}}</b>
+<br> Adresse de Livraison : <b> {{detailGeneral.adresseLivraison}} {{detailGeneral.telephoneReceptionLivraison}}</b></p>
+
+<div class="card w-75" *ngFor="let commande of listCommandes;">
+  <div class="card-body">
+    <h5 class="card-title">{{commande.categorie}}</h5>
+    <p class="card-text">{{commande.nomArticle}} : {{commande.marque}}<br>
+      {{commande.quantite}} Piéce(s). <br>
+      {{commande.likeCount}} Personne(s) aiment ce produit.<br>
+      Prix HT par unité : {{commande.prixArticle.toFixed(2)}}<br>
+      </p>
+    <a href="#" class="btn btn-primary">Prix Total {{(commande.prixArticle*commande.quantite).toFixed(2)}}</a>
+  </div>
+</div>
+
 </div>

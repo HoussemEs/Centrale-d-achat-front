@@ -6,7 +6,6 @@ import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',

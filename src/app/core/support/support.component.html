@@ -1,0 +1,12 @@
+<div class="all">
+  <div class="card" *ngFor="let help of listHelp;">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{help.compName}}</h5>
+      <p class="card-text">{{help.description}}</p>
+      <button class="btn btn-primary"><a routerLink="{{help.routeToComponent}}">Visitez</a></button>
+    </div>
+  </div>
+</div>

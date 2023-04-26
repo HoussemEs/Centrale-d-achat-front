@@ -1,7 +1,11 @@
 <div class="header_container">
   <div style="display:inline-block">E-Spare</div>
   <div class="left_side">
-    <input type="text" class="search_box">
+    <!-- <input type="text" class="search_box"> -->
+    <input type="text" name="searchbox" id="search_txt" autocomplete="off">
+    <button class="search_btn" (click)="supportClient()">
+      <fa-icon [icon]=searchIcon style="padding-right:15px;"></fa-icon>
+    </button>
     <div class="help_txt">Contact</div>
 
     <div class="help_txt">About Us</div>

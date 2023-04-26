@@ -6,6 +6,7 @@ import { DeliveryComponent } from './core/delivery/delivery.component';
 import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-delivery.component';
 import { CheckoutComponent } from './core/checkout/checkout.component';
 import { DetailComponent } from './core/facture/detail/detail.component';
+import { SupportComponent } from './core/support/support.component';
 
 const routes: Routes = [
   {path:"facture",component:FactureComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"paiement",component:PaiementComponent},
   {path:"tracking",component:TrackDeliveryComponent},
   {path:"checkout",component:CheckoutComponent},
+  {path:"support/:text",component:SupportComponent},
   {path:"facture/detail/:factid",component:DetailComponent}
   // {path:"/home",component:ProductsComponent},
   // {path:"/home",component:ProductsComponent},

@@ -31,6 +31,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 import { DetailComponent } from './core/facture/detail/detail.component';
+import { SupportComponent } from './core/support/support.component';
 
 
 
@@ -46,7 +47,8 @@ import { DetailComponent } from './core/facture/detail/detail.component';
     TrackDeliveryComponent,
     PaiementComponent,
     CheckoutComponent,
-    DetailComponent
+    DetailComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,

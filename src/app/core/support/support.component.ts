@@ -31,8 +31,15 @@ export class SupportComponent {
         this.help.routeToComponent='/facture';
         this.listHelp.push(this.help);
         console.log("supposedly cards have been displayed");
+      }else if(this.search.includes("paiement")){
+        this.help.compName = 'Liste Paiement';
+        this.help.description = 'Consulter tous les paiements, chercher une paiement spécifique, chercher par date ou client etc..';
+        this.help.routeToComponent='/paiement';
+        this.listHelp.push(this.help);
+        console.log("supposedly cards have been displayed");
       }else{
-        console.log("else");
+        document.getElementById("not-found").style.visibility = 'visible';
+        document.getElementById("not-found").style.height = 'auto';
       }
     }
 }

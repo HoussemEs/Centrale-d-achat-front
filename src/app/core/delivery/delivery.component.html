@@ -1,1 +1,92 @@
-<p>delivery works!</p>
+<div class="component_body">
+<h1>List deliveries</h1>
+<table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">delivery N</td>
+    <td class="td number">Commande</td>
+    <td class="td number">Emplacement Origine</td>
+    <td class="td number">Numéro Client</td>
+    <td class="td number">Date d'envoi</td>
+    <td class="td number">Date Livraison Prévu</td>
+    <td class="td number">Date Livraison</td>
+    <td class="td number">Type Livraison</td>
+    <td class="td number">Adresse de Livraison</td>
+    <td class="td number">Etat</td>
+    <td class="td btn"></td>
+  </tr>
+  <tr *ngFor="let delivery of detailedList; let ind= index"  class="tr">
+
+    <td class="td number">{{delivery.livraisonId}}</td>
+    <td class="td number"><a routerLink="/facture/detail/{{delivery.factureId}}">{{delivery.factureId}}</a></td>
+    <td class="td number">{{delivery.emplacementOrigine}}</td>
+    <td class="td number">{{delivery.numTelReception}}</td>
+    <td class="td number" *ngIf="delivery.dateEnvoi==null">En cours de traitement..</td>
+    <td class="td number" *ngIf="delivery.dateEnvoi!=null">{{delivery.dateEnvoi}}</td>
+    <td class="td number">{{delivery.dateLivraisonPrevu}}</td>
+    <td class="td number" *ngIf="delivery.dateLivraison==null">En cours de traitement..</td>
+    <td class="td number" *ngIf="delivery.dateLivraison!=null">{{delivery.dateLivraison}}</td>
+    <td class="td number" *ngIf="delivery.typeLivraison==1">Basique</td>
+    <td class="td number" *ngIf="delivery.typeLivraison==2">Enlevement Inclus</td>
+    <td class="td number" *ngIf="delivery.typeLivraison==3">Urgente</td>
+    <td class="td number">{{delivery.adresseLivraison}}</td>
+    <td class="td number" style="color:red; font-weight: 700" *ngIf="delivery.etatLivraison==-1">Annulée</td>
+    <td class="td number" style="color:green; font-weight: 700" *ngIf="delivery.etatLivraison==0">Confirmé</td>
+    <td class="td btn">Change Status</td>
+
+    <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+    <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+    <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+    -->
+  </tr>
+</table>
+
+ <!-- Trigger the modal with a button -->
+ <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" role="dialog">
+   <div class="modal-dialog">
+
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title">Modal Header</h4>
+       </div>
+       <div class="modal-body">
+          <!-- <input type="text" name="" id=""> -->
+          <form class="example-form">
+            <label for="nomLivreur">Livreur :</label>
+            <mat-form-field class="example-full-width">
+              <input type="text" id="nomLivreur" placeholder="Pick one" (keyup)="getSuggestions()" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{ option }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field><br>
+
+
+            <label for="societeLivraison">Société de Livraison :</label>
+            <mat-form-field class="example-full-width" id="societeLivraison">
+              <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            </mat-form-field><br>
+
+
+            <label for="secteur">Secteur :</label>
+            <mat-form-field class="example-full-width" id="secteur">
+              <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            </mat-form-field>
+
+          </form>
+       </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default reset" data-dismiss="modal">Reset</button>
+         <button type="button" class="btn btn-default save" data-dismiss="modal">Save</button>
+       </div>
+     </div>
+
+   </div>
+ </div>
+
+</div>

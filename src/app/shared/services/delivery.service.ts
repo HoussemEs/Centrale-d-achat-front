@@ -3,6 +3,7 @@ import {HttpClient, HttpResponse, HttpHeaders, HttpRequest} from '@angular/commo
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ export class DeliveryService {
 
   saveDelivery(livraison, idCommande){
     return this.http.post("http://localhost:8099/delivery/add-delivery/"+idCommande, livraison) .pipe(map((response: Response) =>response.json()))
+  }
+
+  getDeliveryDetails(idLivraison){
+    return this.http.get("http://localhost:8099/delivery/details/"+idLivraison) .pipe(map((response:Response) => response))
   }
 
   getDeliveries(){

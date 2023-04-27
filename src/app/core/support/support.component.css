@@ -62,3 +62,8 @@ a:visited{
   text-decoration: none;
   color: white !important;
 }
+
+.not_found{
+  visibility: hidden;
+  height : 0;
+}

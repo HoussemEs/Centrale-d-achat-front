@@ -14,7 +14,7 @@
   </tr>
   <tr *ngFor="let facture of listFactures; let ind= index"  class="tr">
 
-    <td class="td number">{{ind + 1}}</td>
+    <td class="td number"><a routerLink="/facture/detail/{{facture.factureId}}">{{facture.factureId}}</a></td>
     <td class="td number">{{facture.dateFacturation}}</td>
     <td class="td number">{{facture.prixHT}}</td>
     <td class="td number" *ngIf="facture.solde==0">Non Soldée</td>

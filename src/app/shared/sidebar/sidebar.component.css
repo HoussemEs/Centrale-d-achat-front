@@ -15,9 +15,15 @@
   font-size:30px;
   cursor:pointer;
   position: fixed;
-  padding-left:80px;
+  padding-left:70px;
   transition-delay: 0.1s;
-  padding-top: 15px;
+  /* padding-top: 15px; */
+  /* padding:20px; */
+  border-color: transparent;
+  border-width: 0;
+  border-radius: 10px;
+  color: white;
+  background-color: #fca311;
 }
 .sidenav_text{
   display: inline-block;

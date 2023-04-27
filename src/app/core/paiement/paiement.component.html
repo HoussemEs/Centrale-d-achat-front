@@ -16,7 +16,7 @@
   <tr *ngFor="let paiement of listPaiements; let ind= index"  class="tr">
 
     <td class="td number">{{paiement.paiementId}}</td>
-    <td class="td number">{{paiement.factureId}}</td>
+    <td class="td number"><a routerLink="/facture/detail/{{paiement.factureId}}">{{paiement.factureId}}</a></td>
     <td class="td number">{{paiement.clientName}}</td>
     <td class="td number" *ngIf="paiement.methodePaiement==1">Cash</td>
     <td class="td number" *ngIf="paiement.methodePaiement==2">Visa ou MasterCard</td>

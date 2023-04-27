@@ -20,3 +20,8 @@
   display: inline-block;
   padding-left:8%;
 }
+.search_btn{
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+}

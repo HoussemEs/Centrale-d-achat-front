@@ -31,6 +31,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 import { DetailComponent } from './core/facture/detail/detail.component';
+import { SupportComponent } from './core/support/support.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -46,12 +50,13 @@ import { DetailComponent } from './core/facture/detail/detail.component';
     TrackDeliveryComponent,
     PaiementComponent,
     CheckoutComponent,
-    DetailComponent
+    DetailComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-    FormsModule
+    FormsModule,MatAutocompleteModule
   ],
   providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,

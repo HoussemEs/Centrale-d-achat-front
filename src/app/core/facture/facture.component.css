@@ -24,3 +24,10 @@ h1{
   color: #000;
   font-size: 24px;
 }
+a{
+  text-decoration: none;
+}
+a:visited{
+  text-decoration: none;
+}
+

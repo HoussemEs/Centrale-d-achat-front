@@ -1,9 +1,10 @@
 <div id="mySidenav" class="sidenav" style="width: 60px;">
-  <a href="#"><fa-icon [icon]=userIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text1">Profile</div></a>
-  <a href="#"><fa-icon [icon]=commandeIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text2">Commandes</div></a>
-  <a [routerLink]="['facture']" ><fa-icon [icon]=factureIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text3">Facture</div></a>
-  <a [routerLink]="['delivery']"><fa-icon [icon]=deliveryIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text4">Livraison</div></a>
-  <a [routerLink]="['paiement']"><fa-icon [icon]=paiementIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text5">Paiement</div></a>
-  <a [routerLink]="['tracking']"><fa-icon [icon]=searchIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text6">Track</div></a>
-</div>
-<span class="sidenav_btn" id="sidenav_btn" (click)="openNav()">&#9776;</span>
+    <a href="#"><fa-icon [icon]=userIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text1">Profile</div></a>
+    <a href="#"><fa-icon [icon]=commandeIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text2">Commandes</div></a>
+    <a [routerLink]="['facture']" ><fa-icon [icon]=factureIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text3">Facture</div></a>
+    <a [routerLink]="['delivery']"><fa-icon [icon]=deliveryIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text4">Livraison</div></a>
+    <a [routerLink]="['paiement']"><fa-icon [icon]=paiementIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text5">Paiement</div></a>
+    <a [routerLink]="['tracking']"><fa-icon [icon]=searchIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text6">Track</div></a>
+  </div>
+
+<button class="sidenav_btn" id="sidenav_btn" (click)="openNav()">&#9776;</button>

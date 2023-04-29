@@ -70,6 +70,17 @@ export class DeliveryComponent {
   filter(val: string): string[] {
     return this.options.filter(option => typeof option === 'string' && option.toLowerCase().indexOf(val.toLowerCase()) === 0);
   }
+  displayModal(){
+    console.log("displayed");
+    document.getElementById("myModal11").style.visibility =" visible";
+  }
+  closeModal(){
+    document.getElementById("myModal11").style.visibility =" hidden";
+  }
+  setShipped(idLivraison:any){
+    console.log(idLivraison);
+    this.deliveryService.setShipped(idLivraison);
+  }
 
 
 }

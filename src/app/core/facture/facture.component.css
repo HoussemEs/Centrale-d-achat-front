@@ -8,6 +8,8 @@
   display: grid;
   justify-content: center;
   color: #000;
+  margin: auto!important;
+  width:50%;
 }
 .tr,.td{
   padding: 5px;

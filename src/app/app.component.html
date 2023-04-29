@@ -1,11 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<div class="nav">
+<div *ngIf="userType=='admin'" class="nav">
   <app-nav></app-nav>
 </div>
-<div class="sidebar">
+<div *ngIf="userType=='admin'" class="sidebar">
   <app-sidebar></app-sidebar>
 </div>
-<div class="body">
+<div *ngIf="userType=='admin'" class="body body_admin">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="userType=='user'" class="body_user">
   <router-outlet></router-outlet>
 </div>
   <!--

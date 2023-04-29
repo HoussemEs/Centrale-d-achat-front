@@ -1,16 +1,19 @@
+
 .header_container{
   padding-left:320px!important;
-  padding-top:5px;
-  padding-bottom:5px;
-  display:inline-block;
+  padding-top: 13px;
+  padding-bottom: 5px;
+  display: inline-block;
   width: 100% !important;
-  line-height: 40px!important;
+  line-height: 20px!important;
   white-space: nowrap;
+  /* overflow: hidden; */
 }
 .left_side{
-  padding-left:40%!important;
-  display:inline-block;
+  display: inline-block;
   width: 100%;
+  left: 64%;
+  position: absolute;
 }
 .help_txt{
   padding-left: 2%;

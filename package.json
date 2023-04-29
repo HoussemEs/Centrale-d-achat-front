@@ -1,5 +1,5 @@
 {
-  "name": "to-do-list",
+  "name": "centrale-dachat",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -25,9 +25,13 @@
     "@fortawesome/angular-fontawesome": "^0.12.1",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@ng-bootstrap/ng-bootstrap": "^14.1.0",
+    "@popperjs/core": "^2.11.7",
+    "@types/jquery": "^3.5.16",
     "@types/jwt-decode": "^3.1.0",
     "angular-material": "^1.1.24",
     "body-parser": "^1.20.1",
+    "bootstrap": "^5.3.0-alpha3",
     "express": "^4.18.2",
     "jwt-decode": "^3.1.2",
     "material": "^0.5.3",

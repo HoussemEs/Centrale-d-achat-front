@@ -1,6 +1,10 @@
 /* .component_body{
   height:1366px;
 } */
+
+.example-full-width {
+  width: 400px!important;
+}
 .table{
   table-layout: auto;
   border-color: transparent;
@@ -41,8 +45,20 @@ a{
 a:visited{
   text-decoration: none;
 }
-.modal{
-  visibility: visible!important;
+.btn_modal{
+  width:150px;
+  height:30px;
+  background-color: #fca211;
+  color:white;
+  font-weight: 700;
+  border-color: black;
+  border-width: 1px;
+  font-size: 14px;
+  font-family: Exo, sans-serif!important;
+  border-radius: 20px;
+}
+.modal11{
+  visibility: hidden;
   color:black;
   position: absolute;
   background-color: #fdfdfd;
@@ -116,10 +132,9 @@ a:visited{
   min-height:250px;
 }
 
-.modal-footer{
+.modal-footer1{
   background-color: #f1f1f1;
   height:40px;
-  margin:10px;
   padding-left: 20px!important;
   padding-top:5px!important;
   border-radius: 0px 0px 30px 30px;

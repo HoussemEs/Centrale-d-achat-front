@@ -35,6 +35,17 @@ import { SupportComponent } from './core/support/support.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TestComponent } from './core/test/test.component';
+import { DeliveryService } from './shared/services/delivery.service';
+import { ShopComponent } from './core/shop/shop.component';
+import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { HeaderComponent } from './core/shop/header/header.component';
+import { FooterComponent } from './core/shop/footer/footer.component';
+import { HomeComponent } from './core/shop/home/home.component';
+import { AboutComponent } from './core/shop/about/about.component';
+import { ErrorComponent } from './shared/error/error.component';
+import { HistoryComponent } from './core/shop/history/history.component';
+import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
 
 
 
@@ -51,7 +62,17 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     PaiementComponent,
     CheckoutComponent,
     DetailComponent,
-    SupportComponent
+    SupportComponent,
+    TestComponent,
+    ShopComponent,
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    ErrorComponent,
+    HistoryComponent,
+    HistoryDetailComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
@@ -59,7 +80,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,MatAutocompleteModule
   ],
   providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,
+    PaiementService,MatDatepickerModule,DeliveryService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

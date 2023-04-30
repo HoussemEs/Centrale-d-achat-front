@@ -1,0 +1,25 @@
+<h1>List Emplacement</h1>
+<table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">Id</td>
+    <td class="td number">Nom Emplacement</td>
+    <td class="td number">Adresse</td>
+    <td class="td number">Gouvernorat</td>
+    <td class="td btn"></td>
+    <td class="td btn"></td>
+  </tr>
+  <tr *ngFor="let e of listemplacement; let ind= index"  class="tr">
+
+    <td class="td number">{{ind}}</td>
+    <td class="td number">{{e.nomEmplacement}}</td>
+    <td class="td number">{{e.adresseEmplacement}}</td>
+    <td class="td number">{{e.gouvernorat}}</td>
+    <td class="td btn"><button (click)="deleteEmplacement(e.emplacementId)">Supprimer</button></td>
+    <td class="td btn"></td>
+
+    <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+    <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+    <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+    -->
+  </tr>
+</table>

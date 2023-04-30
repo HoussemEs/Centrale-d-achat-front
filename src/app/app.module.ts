@@ -46,6 +46,9 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
+import { EmplacementComponent } from './core/emplacement/emplacement.component';
+import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { EmplacementService } from './shared/services/emplacement.service';
 
 
 
@@ -72,7 +75,9 @@ import { HistoryDetailComponent } from './core/shop/history/history-detail/histo
     AboutComponent,
     ErrorComponent,
     HistoryComponent,
-    HistoryDetailComponent
+    HistoryDetailComponent,
+    EmplacementComponent,
+    AddEmplacementComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
@@ -80,7 +85,7 @@ import { HistoryDetailComponent } from './core/shop/history/history-detail/histo
     FormsModule,MatAutocompleteModule
   ],
   providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,
+    PaiementService,MatDatepickerModule,DeliveryService,EmplacementService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

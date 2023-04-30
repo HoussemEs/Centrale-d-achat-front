@@ -20,6 +20,10 @@ export class DeliveryService {
     return this.http.post("http://localhost:8099/delivery/add-delivery/"+idCommande, livraison) .pipe(map((response: Response) =>response.json()))
   }
 
+  assignDelivery(livreur, idLivraison){
+    return this.http.post("http://localhost:8099/enlevement/assign-delivery/"+idLivraison, livreur) .pipe(map((response: Response) =>response.json()))
+  }
+
   getDeliveryDetails(idLivraison){
     return this.http.get("http://localhost:8099/delivery/details/"+idLivraison) .pipe(map((response:Response) => response))
   }

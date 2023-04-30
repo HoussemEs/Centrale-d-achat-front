@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CommonService } from './common.service';
 import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './shared/nav/nav.component';
 import { FactureComponent } from './core/facture/facture.component';
@@ -46,6 +45,7 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
+import { SharedService } from './shared/services/shared-service.service';
 
 
 
@@ -79,8 +79,8 @@ import { HistoryDetailComponent } from './core/shop/history/history-detail/histo
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
     FormsModule,MatAutocompleteModule
   ],
-  providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,
+  providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

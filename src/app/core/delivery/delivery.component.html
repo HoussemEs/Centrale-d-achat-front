@@ -33,7 +33,7 @@
     <td class="td number" style="color:green; font-weight: 700" *ngIf="delivery.etatLivraison==0">Confirmé</td>
     <td class="td btn">
       <div *ngIf="delivery.dateEnvoi==null">
-        <button  type="button" class="btn_modal" id="modal_btn" (click)="displayModal()">Assigner Livreur</button>
+        <button  type="button" class="btn_modal" id="modal_btn" (click)="displayModal(delivery.livraisonId)">Assigner Livreur</button>
       </div>
       <div *ngIf="delivery.dateLivraison==null && delivery.dateEnvoi!=null">
         <button  type="button" class="btn_modal" id="modal_btn" (click)="setShipped(delivery.livraisonId)" style="font-size:11px!important;">Changer Etat à livrée</button>
@@ -61,7 +61,7 @@
        </div>
        <div class="modal-body">
           <!-- <input type="text" name="" id=""> -->
-          <form class="example-form">
+          <form class="example-form" [formGroup]="Form">
 
           <table>
               <tr>
@@ -70,7 +70,7 @@
                 </td>
                 <td>
                   <mat-form-field class="example-full-width">
-                    <input type="text" id="nomLivreur" placeholder="Entrer Le nom du livreur.." (keyup)="getSuggestions()" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <input name="nomLivreur" [(ngModel)]="livreur.nomLivreur" type="text" id="nomLivreur" formControlName="nomLivreur" placeholder="Entrer Le nom du livreur.." (keyup)="getSuggestions()" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                         {{ option }}
@@ -85,7 +85,7 @@
                 </td>
                 <td>
                   <mat-form-field class="example-full-width" id="societeLivraison">
-                    <input type="text" placeholder="Entrez le nom de l'entreprise.." aria-label="Number" matInput [formControl]="myControl">
+                    <input name="societeLivraison" [(ngModel)]="livreur.societeLivraison" type="text" placeholder="Entrez le nom de l'entreprise.." formControlName="societeLivraison" aria-label="Number" matInput [formControl]="illControl">
                   </mat-form-field><br>
                 </td>
               </tr>
@@ -95,9 +95,22 @@
                 </td>
                 <td>
                   <mat-form-field class="example-full-width" id="secteur">
-                    <input type="text" placeholder="Entrez le secteur géographique.." aria-label="Number" matInput [formControl]="myControl">
+                    <input name="secteur" [(ngModel)]="livreur.secteur" type="text" placeholder="Entrez le secteur géographique.." formControlName="secteur" aria-label="Number" matInput [formControl]="">
                   </mat-form-field>
                 </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="numTel">Numéro téléphone :</label>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" id="numTel">
+                    <input name="numTel" [(ngModel)]="livreur.numLivreur" type="text" placeholder="Entrez le Numéro du livreur.." formControlName="numLivreur" aria-label="Number" matInput [formControl]="numControl">
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr *ngIf="dateAjout!=null">
+                <td colspan="2">Travaille depuis {{dateAjout}}</td>
               </tr>
           </table>
 
@@ -105,7 +118,7 @@
        </div>
        <div class="modal-footer1">
         <button type="button" class="reset" data-dismiss="modal">Reset</button>
-         <button type="button" class="save" data-dismiss="modal">Save</button>
+         <button type="button" class="save" data-dismiss="modal" (click)="sendData()">Save</button>
        </div>
      </div>
 

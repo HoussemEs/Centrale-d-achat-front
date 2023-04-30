@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CommonService } from './common.service';
 import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './shared/nav/nav.component';
 import { FactureComponent } from './core/facture/facture.component';
@@ -46,9 +45,10 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
+import { SharedService } from './shared/services/shared-service.service';
+import { EmplacementService } from './shared/services/emplacement.service';
 import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
-import { EmplacementService } from './shared/services/emplacement.service';
 
 
 
@@ -84,8 +84,8 @@ import { EmplacementService } from './shared/services/emplacement.service';
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
     FormsModule,MatAutocompleteModule
   ],
-  providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,EmplacementService,
+  providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

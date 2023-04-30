@@ -15,8 +15,6 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
-import { EmplacementComponent } from './core/emplacement/emplacement.component';
-import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
 
 const routes: Routes = [
   {path:"facture",component:FactureComponent},
@@ -25,8 +23,6 @@ const routes: Routes = [
   {path:"paiement",component:PaiementComponent},
   {path:"tracking",component:TrackDeliveryComponent},
   {path:"checkout",component:CheckoutComponent},
-  {path:"emplacement",component:EmplacementComponent},
-  {path:"emplacement/add",component:AddEmplacementComponent},
   {path:"support/:text",component:SupportComponent},
   {path:"test",component:TestComponent},
   {path:"shop",component:ShopComponent},

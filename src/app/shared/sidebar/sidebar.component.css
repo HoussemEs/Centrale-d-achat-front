@@ -1,0 +1,79 @@
+
+.sidenav {
+  height: 100%;
+  width: 60px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fcac18;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 8%;
+}
+.sidenav_btn{
+  padding-top: 1%;
+  font-size:30px;
+  cursor:pointer;
+  position: fixed;
+  padding-left:70px;
+  transition-delay: 0.1s;
+  /* padding-top: 15px; */
+  /* padding:20px; */
+  border-color: transparent;
+  border-width: 0;
+  border-radius: 10px;
+  color: white;
+  background-color: #fca311;
+}
+.sidenav_text{
+  display: inline-block;
+  font-size:14px;
+  font-family: Exo, sans-serif!important;
+  font-weight: 800;
+  /* font-size: 0px; */
+}
+#sidenav_text1{
+  visibility: hidden;
+}
+#sidenav_text2{
+  visibility: hidden;
+}
+#sidenav_text3{
+  visibility: hidden;
+}
+#sidenav_text4{
+  visibility: hidden;
+}
+#sidenav_text5{
+  visibility: hidden;
+}
+#sidenav_text6{
+  visibility: hidden;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 18px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #0a2f87;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #14213d;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

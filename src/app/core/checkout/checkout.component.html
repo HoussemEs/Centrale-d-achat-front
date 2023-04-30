@@ -1,0 +1,63 @@
+<div class="checkout_container">
+  <!-- <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button> -->
+  <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup" class="form">
+        <ng-template matStepLabel>Shipping Details</ng-template>
+        <mat-form-field>
+          <mat-label>Shipping Type</mat-label>
+          <mat-select formControlName="typeLivraison">
+            <mat-option *ngFor="let type of typeLivraison" [value]="type.value">
+              {{type.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput class="first_input" placeholder="Shipping Adress" formControlName="adresseLivraison" required>
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput class="first_input" placeholder="Receiver Phone Number" formControlName="numeroDestinataire" required>
+        </mat-form-field><br>
+        <div>
+          <button mat-button matStepperNext class="stepper_btn" (click)="checkSelect()">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Payment Informations</ng-template>
+        <mat-form-field>
+          <mat-label>Payment Method</mat-label>
+          <mat-select formControlName="methodePaiement">
+            <mat-option *ngFor="let type of methodePaiement" [value]="type.value">
+              {{type.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput placeholder="Card Number" formControlName="cardNumber" required>
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput style="width:300px!important;" [matDatepicker]="picker" placeholder="Expiration Date" formControlName="expirationDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br>
+        <mat-form-field>
+          <input matInput placeholder="CVV" formControlName="cvv" required>
+        </mat-form-field><br>
+        <div>
+          <button mat-button matStepperPrevious class="stepper_btn stepper_back_btn">Back</button>
+          <button mat-button matStepperNext class="stepper_btn">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

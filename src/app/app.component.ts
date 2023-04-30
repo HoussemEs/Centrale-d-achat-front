@@ -27,7 +27,7 @@ export class AppComponent {
 
     this.userType= localStorage.getItem("user").toLowerCase();
     if(this.userType=='admin'){
-      //this.router.navigate(['/dashboard'])
+      this.router.navigate(['/dashboard'])
     }else if(this.userType=='user'){
      this.router.navigate(['/shop/home'])
     }

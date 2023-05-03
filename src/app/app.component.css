@@ -30,14 +30,14 @@
 
   /* Handle */
   ::ng-deep *::-webkit-scrollbar-thumb {
-    background: rgb(249, 249, 249)!important;
+    background: #b30000!important;
     border-radius: 10px;
     height:50px!important;
   }
 
   /* Handle on hover */
   ::ng-deep *::-webkit-scrollbar-thumb:hover {
-    background: #b30000!important;
+    background: #d63838!important;
   }
 
   ::ng-deep * html{
@@ -136,8 +136,6 @@ input[type=text]{
   position: absolute;
   color: #fff;
 }
-
-
 
 
 

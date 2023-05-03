@@ -15,8 +15,10 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
+import { HealthComponent } from './core/health/health.component';
 
 const routes: Routes = [
+  {path:"health",component:HealthComponent},
   {path:"facture",component:FactureComponent},
   {path:"paiement",component:PaiementComponent},
   {path:"delivery",component:DeliveryComponent},

@@ -15,6 +15,10 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
+import { CurrencyComponent } from './core/currency/currency.component';
+import { EmpCallenderComponent } from './core/emp-callender/emp-callender.component';
+import { ChargeComponent } from './core/charge/charge.component';
+import { ImpotComponent } from './core/impot/impot.component';
 
 const routes: Routes = [
   {path:"facture",component:FactureComponent},
@@ -22,12 +26,19 @@ const routes: Routes = [
   {path:"delivery",component:DeliveryComponent},
   {path:"paiement",component:PaiementComponent},
   {path:"tracking",component:TrackDeliveryComponent},
+  {path:"currency",component:CurrencyComponent},
   {path:"checkout",component:CheckoutComponent},
   {path:"support/:text",component:SupportComponent},
   {path:"test",component:TestComponent},
   {path:"shop",component:ShopComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"facture/detail/:factid",component:DetailComponent},
+  {path:"Empcalender",component:EmpCallenderComponent},
+  {path:"charge",component:ChargeComponent},
+  {path:"impot",component:ImpotComponent},
+
+
+
   {path: 'shop',component: ShopComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -49,6 +49,29 @@ import { SharedService } from './shared/services/shared-service.service';
 import { EmplacementService } from './shared/services/emplacement.service';
 import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { ImpotComponent } from './core/impot/impot.component';
+import { ChargeComponent } from './core/charge/charge.component';
+import { CurrencyService } from './shared/services/currency.service';
+import { CurrencyComponent } from './core/currency/currency.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { AddEditCurrencyComponent } from './core/currency/add-edit-currency/add-edit-currency.component';
+import { CoreService } from './shared/services/core.service';
+import { AddEditChargeComponent } from './core/charge/add-edit-charge/add-edit-charge.component';
+import { AddEditImpotComponent } from './core/impot/add-edit-impot/add-edit-impot.component';
+import { ScheduleModule , RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { EmpCallenderComponent } from './core/emp-callender/emp-callender.component';
+import { ChargeService } from './shared/services/charge.service';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService } from '@syncfusion/ej2-angular-schedule';
+import { ImpotService } from './shared/services/impot.service';
 
 
 
@@ -60,6 +83,7 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
     FactureAvoirComponent,
     DeliveryComponent,
     RetourComponent,
+    CurrencyComponent,
     SidebarComponent,
     TrackDeliveryComponent,
     PaiementComponent,
@@ -77,15 +101,27 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
     HistoryComponent,
     HistoryDetailComponent,
     EmplacementComponent,
-    AddEmplacementComponent
+    AddEmplacementComponent,
+    ImpotComponent,
+    ChargeComponent,
+    AddEditCurrencyComponent,
+    AddEditChargeComponent,
+    AddEditImpotComponent,
+    EmpCallenderComponent,
+    
+
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-    FormsModule,MatAutocompleteModule
+    FormsModule,MatAutocompleteModule,MatToolbarModule,MatIconModule,MatButtonModule,MatDialogModule,
+    MatInputModule,MatRadioModule,MatSelectModule,MatTableModule,MatPaginatorModule,MatSortModule,
+    MatSnackBarModule,MatFormFieldModule,ScheduleModule,RecurrenceEditorModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,CurrencyService,CoreService,ChargeService,
+    ImpotService, DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService,
+    
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

@@ -15,6 +15,12 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
+import { EmplacementComponent } from './core/emplacement/emplacement.component';
+import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
+import { DepartementComponent } from './core/departement/departement.component';
+import { EmployeeComponent } from './core/employee/employee.component';
+import { AddEmployeeComponent } from './core/employee/add-employee/add-employee.component';
 
 const routes: Routes = [
   {path:"facture",component:FactureComponent},
@@ -22,6 +28,12 @@ const routes: Routes = [
   {path:"delivery",component:DeliveryComponent},
   {path:"paiement",component:PaiementComponent},
   {path:"tracking",component:TrackDeliveryComponent},
+  {path:"departement",component:DepartementComponent},
+  {path:"employee",component:EmployeeComponent},
+  {path:"employee/add/:idEmp/:idDep",component:AddEmployeeComponent},
+  {path:"emplacement",component:EmplacementComponent},
+  {path:"emplacement/add",component:AddEmplacementComponent},
+  {path:"emplacement/edit/:idEmp",component:EditEmplacementComponent},
   {path:"checkout",component:CheckoutComponent},
   {path:"support/:text",component:SupportComponent},
   {path:"test",component:TestComponent},

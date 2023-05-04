@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { departementService } from 'src/app/shared/services/departement.service';
 import { EmplacementService } from 'src/app/shared/services/emplacement.service';
 
 export interface Emplacement{
@@ -18,14 +20,33 @@ export class AddEmplacementComponent {
     adresseEmplacement:'',
     gouvernorat:''
   };
+  listdp: any;
 
 
-  constructor(private emplacementService:EmplacementService){}
+  toppings = new FormControl('');
+  dpList: any=[];
+  response: any;
+  depts: any=[];
+
+
+  constructor(private emplacementService:EmplacementService, private dpService:departementService){}
+
+  ngOnInit(){
+    this.dpService.getDepartementList().subscribe(d=> {this.listdp = d;
+    console.log(this.dpList);
+    this.dpList= this.listdp;
+    });
+  }
 
   sendData(){
     console.log(this.emp);
+    this.depts= this.toppings.value;
     this.emplacementService.saveEmplacement(this.emp).subscribe(d=> {
-      console.log(d);
+      this.response = d;
+      this.depts.forEach(idDep => {
+        this.dpService.assignEmpDep(this.response['emplacementId'],idDep).subscribe(d=> {console.log(d)},error => console.log(error))
+      });
+      console.log(this.response );
     },error => console.log(error));
   }
 

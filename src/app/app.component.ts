@@ -11,6 +11,7 @@ import {Router} from "@angular/router"
 })
 
 export class AppComponent {
+  title: any;
   constructor(private router:Router) { }
   userType="";
   ngOnInit() {

@@ -1,0 +1,62 @@
+/* Aligner le formulaire au centre de la page */
+.table {
+    margin: 0 auto;
+  }
+  
+  /* Style des entêtes de colonnes */
+  .tr-header {
+    background-color: #f2f2f2;
+  }
+  
+  .td-header {
+    font-weight: bold;
+  }
+  
+  /* Style des lignes de données */
+  .tr {
+    background-color: #ffffff;
+  }
+  
+  .td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .number {
+    width: 10%;
+  }
+  
+  .btn {
+    width: 20%;
+  }
+  
+  /* Style des boutons */
+  button {
+    background-color: #d4af37;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    /*border: 2px solid #ccc;*/
+    border-radius: 4px;
+    /*background-color: #f8f8f8;*/
+    font-size: 16px;
+  }
+
+  .disabled{
+    border-color:transparent!important;
+    background-color:transparent!important;
+  }
+  

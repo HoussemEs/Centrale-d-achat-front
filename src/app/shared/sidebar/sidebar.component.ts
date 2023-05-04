@@ -5,6 +5,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faLocation } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,6 +22,8 @@ export class SidebarComponent {
   deliveryIcon = faTruckFast;
   paiementIcon = faMoneyBill;
   searchIcon = faSearch;
+  emplacementIcon = faLocation;
+  depIcon = faBuilding;
   openNav() {
     if(document.getElementById("mySidenav").style.width == "60px"){
       document.getElementById("sidenav_btn").style.paddingLeft = "270px";
@@ -30,6 +34,8 @@ export class SidebarComponent {
       document.getElementById("sidenav_text4").style.visibility = "visible";
       document.getElementById("sidenav_text5").style.visibility = "visible";
       document.getElementById("sidenav_text6").style.visibility = "visible";
+      document.getElementById("sidenav_text7").style.visibility = "visible";
+
     }else{
       document.getElementById("mySidenav").style.width = "60px";
       document.getElementById("sidenav_btn").style.paddingLeft = "80px";
@@ -39,6 +45,8 @@ export class SidebarComponent {
       document.getElementById("sidenav_text4").style.visibility = "hidden";
       document.getElementById("sidenav_text5").style.visibility = "hidden";
       document.getElementById("sidenav_text6").style.visibility = "hidden";
+      document.getElementById("sidenav_text7").style.visibility = "hidden";
+
     }
   }
 

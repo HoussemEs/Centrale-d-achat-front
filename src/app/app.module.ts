@@ -49,6 +49,12 @@ import { SharedService } from './shared/services/shared-service.service';
 import { EmplacementService } from './shared/services/emplacement.service';
 import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
+import { DepartementComponent } from './core/departement/departement.component';
+import { CoreService } from './shared/services/core.service';
+import { departementService } from './shared/services/departement.service';
+import { EmployeeComponent } from './core/employee/employee.component';
+import { AddEmployeeComponent } from './core/employee/add-employee/add-employee.component';
 
 
 
@@ -77,7 +83,12 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
     HistoryComponent,
     HistoryDetailComponent,
     EmplacementComponent,
-    AddEmplacementComponent
+    AddEmplacementComponent,
+    EditEmplacementComponent,
+    DepartementComponent,
+    EmployeeComponent,
+    AddEmployeeComponent
+    
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
@@ -85,7 +96,7 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
     FormsModule,MatAutocompleteModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,CoreService,departementService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

@@ -1,5 +1,13 @@
 <p>add-emplacement works!</p>
 <input type="text" [(ngModel)]="emp.nomEmplacement" placeholder="nom">
-<input type="text" [(ngModel)]="emp.adresseEmplacement" placeholder="nom">
-<input type="text" [(ngModel)]="emp.gouvernorat" placeholder="nom">
+<input type="text" [(ngModel)]="emp.adresseEmplacement" placeholder="adresseEmplacement">
+<input type="text" [(ngModel)]="emp.gouvernorat" placeholder="gouvernorat">
+
+<mat-form-field appearance="fill">
+    <mat-label>Toppings</mat-label>
+    <mat-select [formControl]="toppings" multiple>
+      <mat-option *ngFor="let dp of dpList" [value]="dp.departmentId">{{dp.departmentName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
 <button (click)="sendData()">Save</button>

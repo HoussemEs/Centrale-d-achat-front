@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable, catchError, retry, throwError, of } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthService } from './authService';
+  import { AuthService } from './authService';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 
@@ -25,8 +25,8 @@ export class TokenInterceptor implements HttpInterceptor {
       retry(1),
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          localStorage.setItem('user','user');
-          this.router.navigate(['/shop/home']);
+          //localStorage.setItem('user','user');
+          //this.router.navigate(['/shop/home']);
           return of(new HttpResponse());
         } else {
           return throwError(error);

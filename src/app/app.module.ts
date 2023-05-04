@@ -49,11 +49,11 @@ import { SharedService } from './shared/services/shared-service.service';
 import { EmplacementService } from './shared/services/emplacement.service';
 import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
-
 import { NgApexchartsModule } from "ng-apexcharts";
 import { HealthComponent } from './core/health/health.component';
-import { HealthService } from './shared/services/health.service';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { BackupsComponent } from './core/health/backups/backups.component';
+import { HealthService } from './shared/services/health.service';
 
 
 
@@ -83,7 +83,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HistoryDetailComponent,
     EmplacementComponent,
     AddEmplacementComponent,
-    HealthComponent
+    HealthComponent,
+    BackupsComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
@@ -91,8 +92,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,
-    HealthService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

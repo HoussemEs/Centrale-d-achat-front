@@ -1,17 +1,170 @@
 
-<table border='1' class="table">
-  <thead>
-    <tr class="tr">
-      <td class="td number">Available Backups</td>
-      <td class="td btn"></td>
-    </tr>
-  </thead>
-  <tr *ngFor="let backup of listBackups; let ind= index"  class="tr">
-    <td class="td number">{{backup}}</td>
-    <td class="td btn"><button (click)="recoverDatabase(backup)">Recover</button></td>
-    <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
-    <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
-    <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
-    -->
-  </tr>
-</table>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="1" role="dialog" aria-bs-labelledby="exampleModalLabel" aria-bs-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title black" id="exampleModalLabel">RAPPORT DE REPLICATION DES DONNEES</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-bs-label="Close">
+          <span aria-bs-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body black">
+        <p *ngFor="let rep of listReplication">{{rep}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Content Row -->
+<div class="row">
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                          Overall Status</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">mana3rech</div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Invoice Mismatch</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{listFactsize}}</div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                      </div>
+                      <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                          </div>
+                          <div class="col">
+                              <div class="progress progress-sm mr-2">
+                                  <div class="progress-bar bg-info" role="progressbar"
+                                      style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                      aria-valuemax="100"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Pending Requests Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                          Data Replication</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Check Report</button></div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Content Row -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div id="chart">
+        <apx-chart
+          [series]="authChartOptions.series"
+          [chart]="authChartOptions.chart"
+          [markers]="authChartOptions.markers"
+          [stroke]="authChartOptions.stroke"
+          [dataLabels]="authChartOptions.dataLabels"
+          [title]="authChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div id="pathchart">
+        <apx-chart
+          [series]="pathChartOptions.series"
+          [chart]="pathChartOptions.chart"
+          [markers]="pathChartOptions.markers"
+          [stroke]="pathChartOptions.stroke"
+          [dataLabels]="pathChartOptions.dataLabels"
+          [title]="pathChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <div id="backchart">
+        <apx-chart
+          [series]="backChartOptions.series"
+          [chart]="backChartOptions.chart"
+          [markers]="backChartOptions.markers"
+          [stroke]="backChartOptions.stroke"
+          [dataLabels]="backChartOptions.dataLabels"
+          [title]="backChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div id="uchart">
+        <apx-chart
+          [series]="uChartOptions.series"
+          [chart]="uChartOptions.chart"
+          [markers]="uChartOptions.markers"
+          [stroke]="uChartOptions.stroke"
+          [dataLabels]="uChartOptions.dataLabels"
+          [title]="uChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+</script>

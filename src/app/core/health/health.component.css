@@ -1,0 +1,36 @@
+ul {
+  text-align: center;
+}
+
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
+  color: black;
+}
+
+#pathchart {
+  max-width: 650px;
+  margin: 35px auto;
+  color: black;
+}
+
+#backchart {
+  max-width: 650px;
+  margin: 35px auto;
+  color: black;
+}
+
+#uchart {
+  max-width: 650px;
+  margin: 35px auto;
+  color: black;
+}
+
+.black{
+  color:black!important;
+}
+
+::ng-deep * .modal-backdrop {
+  z-index:-2!important;
+  opacity: 0!important;
+}

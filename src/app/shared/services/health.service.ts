@@ -34,13 +34,29 @@ export class HealthService {
     return this.http.get("http://localhost:8099/backups/health/replication") .pipe(map((response: Response) => response))
   }
 
-  addError(type:any){
-    return this.http.get("http://localhost:8099/backups/health/error/g/"+type) .pipe(map((response: Response) => response))
+  addError(type:any,request:any){
+    return this.http.get("http://localhost:8099/backups/health/error/g/"+type+"/"+request)
   }
 
   getErrors(type:any){
     return this.http.get("http://localhost:8099/backups/health/request/"+type) .pipe(map((response: Response) => response))
   }
 
+
+  generate404() {
+    return this.http.get("http://localhost:8099/error/iwanta404error") .pipe(map((response: Response) => response))
+  }
+
+  generate401() {
+    return this.http.get("http://localhost:8099/error/iwanta404error") .pipe(map((response: Response) => response))
+  }
+
+  generate500() {
+    return this.http.get("http://localhost:8099/delivery/set-shipped/-222") .pipe(map((response: Response) => response))
+  }
+
+  generatex() {
+    return this.http.get("http://localhost:8099/error/iwanta404error") .pipe(map((response: Response) => response))
+  }
 
 }

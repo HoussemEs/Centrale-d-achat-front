@@ -6,10 +6,19 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HealthService } from './health.service';
 import { AuthService } from './authService';
 
+
+export interface Dataa{
+  request:String;
+}
+
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
+  dataa:Dataa={
+    request:""
+  }
   stackVisited = false;
   responseclient: Observable<HttpEvent<any>>;
+  requestPath: string;
   constructor(public auth: AuthService, private router: Router, private jwtHelper: JwtHelperService,
     private healthService:HealthService) {}
 
@@ -25,15 +34,20 @@ export class TokenInterceptor implements HttpInterceptor {
     this.responseclient = next.handle(request).pipe(
       retry(1),
       catchError((error: HttpErrorResponse) => {
+        this.requestPath=error.url;
+        while((this.requestPath.indexOf("/"))>=1 ) {
+          this.requestPath = this.requestPath.replace("/","-");
+        }
+
         if (error.status === 401) {
-          this.healthService.addError(1).subscribe(d=> {console.log(d)},error => console.log(error));
-          this.healthService.getErrors(1).subscribe(d => console.log(d) );
+            this.healthService.addError(1,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
+            this.healthService.getErrors(1).subscribe(d => console.log(d) );
         } else if (error.status === 500) {
-            this.healthService.addError(2).subscribe(d=> {console.log(d)},error => console.log(error));
+            this.healthService.addError(2,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
         } else if (error.status === 404) {
-          this.healthService.addError(3).subscribe(d=> {console.log(d)},error => console.log(error));
+            this.healthService.addError(3,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
         } else {
-          this.healthService.addError(4).subscribe(d=> {console.log(d)},error => console.log(error));
+            this.healthService.addError(4,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
         }
         return throwError(error);
       })

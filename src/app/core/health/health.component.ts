@@ -246,4 +246,16 @@ export class HealthComponent {
     setInterval(this.onTheMinFunc.bind(this), 5000);
   }
 
+  simulate404(){
+    this.healthService.generate404().subscribe(d=>console.log(d));}
+
+  simulate500(){
+    this.healthService.generate500().subscribe(d=>console.log(d));}
+
+  simulate401(){
+    this.healthService.generate401().subscribe(d=>console.log(d));}
+
+  simulatex(){
+    this.healthService.generatex().subscribe(d=>console.log(d));}
+
 }

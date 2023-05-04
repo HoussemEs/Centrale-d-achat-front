@@ -16,9 +16,11 @@ import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
 import { HealthComponent } from './core/health/health.component';
+import { BackupsComponent } from './core/health/backups/backups.component';
 
 const routes: Routes = [
   {path:"health",component:HealthComponent},
+  {path:"health/backups",component:BackupsComponent},
   {path:"facture",component:FactureComponent},
   {path:"paiement",component:PaiementComponent},
   {path:"delivery",component:DeliveryComponent},

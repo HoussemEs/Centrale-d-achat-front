@@ -166,5 +166,33 @@
 </div>
 
 
+<!-- Error Simulator  -->
+
+<div style="width:80%;height:120px;margin:auto;">
+  <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+          <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      Error Simulator</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800 center-buttons">
+                    <button class="btn btn-warning" (click)="simulate404()">Path Error (404)</button>
+                    <button class="btn btn-danger" (click)="simulate500()">Backend Error (500)</button>
+                    <button class="btn btn-danger" (click)="simulate401()">Unauthorized Error (401)</button>
+                    <button class="btn btn-secondary" (click)="simulatex()">Unknown Error(x)</button>
+                  </div>
+              </div>
+              <div class="col-auto">
+                  <i class="fas fa-calendar fa-2x text-gray-300"></i>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Error Simulator End  -->
+
+
 <script>
 </script>

@@ -34,3 +34,10 @@ ul {
   z-index:-2!important;
   opacity: 0!important;
 }
+
+.center-buttons{
+  margin-left: 15%;
+}
+.btn{
+  margin-right:2%!important;
+}

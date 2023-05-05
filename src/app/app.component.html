@@ -3,13 +3,16 @@
 <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium" bdColor="rgba(32, 55, 77, 0.85)" style="color:white!important">
   <p class="loading" ><Strong>Please wait..<br>Do not shutdown!</Strong></p>
 </ngx-spinner>
-<div *ngIf="userType=='admin'" class="nav">
+<div *ngIf="userType=='admin' && monitoringMode==0" class="nav">
   <app-nav></app-nav>
 </div>
-<div *ngIf="userType=='admin'" class="sidebar">
+<div *ngIf="userType=='admin' && monitoringMode==0" class="sidebar">
   <app-sidebar></app-sidebar>
 </div>
-<div *ngIf="userType=='admin'" class="body body_admin">
+<div *ngIf="monitoringMode!=0" class="body body_reporting">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="userType=='admin' && monitoringMode==0" class="body body_admin">
   <router-outlet></router-outlet>
 </div>
 <div *ngIf="userType=='user'" class="body_user">

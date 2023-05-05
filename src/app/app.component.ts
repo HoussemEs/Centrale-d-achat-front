@@ -12,7 +12,9 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class AppComponent {
   constructor(private router:Router) { }
   userType="";
+  monitoringMode=0;
   ngOnInit() {
+    this.monitoringMode= parseInt(localStorage.getItem("monitoringMode"));
     this.userType= localStorage.getItem("user").toLowerCase();
     if(this.userType=='admin'){
       // this.router.navigate(['/dashboard'])

@@ -42,6 +42,10 @@ export class HealthService {
     return this.http.get("http://localhost:8099/backups/health/request/"+type) .pipe(map((response: Response) => response))
   }
 
+  getLogs(type:any){
+    return this.http.get("http://localhost:8099/backups/health/error/log/"+type) .pipe(map((response: Response) => response))
+  }
+
 
   generate404() {
     return this.http.get("http://localhost:8099/error/iwanta404error") .pipe(map((response: Response) => response))

@@ -10,7 +10,8 @@ import {
   ApexStroke,
   ApexTitleSubtitle,
   ApexDataLabels,
-  ApexMarkers
+  ApexMarkers,
+  ApexFill
 } from "ng-apexcharts";
 
 export type ChartOptions = {
@@ -55,6 +56,7 @@ export class HealthComponent {
 
   listFactsize: any;
   listReplicationSize: any;
+  listLogs: any=[];
 
   constructor(private healthService:HealthService,private spinner: NgxSpinnerService, private route:Router){  }
 
@@ -102,17 +104,27 @@ export class HealthComponent {
       series: [
         {
           name: "Error Count",
-          data: authErrors
+          data: authErrors,
+          color:'#65FE08'
         }
       ],
       chart: {
+        animations:{
+          enabled:false,
+        },
         type: "line",
-        height: 350
+        height: 300,
+        width:500,
+        background: '#000',
+        foreColor:'#65FE08'
       },
       stroke: {
         curve: "stepline"
       },
       dataLabels: {
+        style: {
+          colors: ['#F44336', '#E91E63', '#9C27B0']
+        },
         enabled: false
       },
       title: {
@@ -120,6 +132,7 @@ export class HealthComponent {
         align: "left"
       },
       markers: {
+        colors: ['#F44336', '#E91E63', '#9C27B0'],
         hover: {
           sizeOffset: 4
         }
@@ -132,17 +145,27 @@ export class HealthComponent {
       series: [
         {
           name: "Error Count",
-          data: pathErrors
+          data: pathErrors,
+          color:'#65FE08'
         }
       ],
       chart: {
+        animations:{
+          enabled:false,
+        },
         type: "line",
-        height: 350
+        height: 300,
+        width:500,
+        background: '#000',
+        foreColor:'#65FE08'
       },
       stroke: {
         curve: "stepline"
       },
       dataLabels: {
+        style: {
+          colors: ['#F44336', '#E91E63', '#9C27B0']
+        },
         enabled: false
       },
       title: {
@@ -150,6 +173,7 @@ export class HealthComponent {
         align: "left"
       },
       markers: {
+        colors: ['#F44336', '#E91E63', '#9C27B0'],
         hover: {
           sizeOffset: 4
         }
@@ -162,17 +186,27 @@ export class HealthComponent {
       series: [
         {
           name: "Error Count",
-          data: BackErrors
+          data: BackErrors,
+          color:'#65FE08'
         }
       ],
       chart: {
+        animations:{
+          enabled:false,
+        },
         type: "line",
-        height: 350
+        height: 300,
+        width:500,
+        background: '#000',
+        foreColor:'#65FE08'
       },
       stroke: {
         curve: "stepline"
       },
       dataLabels: {
+        style: {
+          colors: ['#F44336', '#E91E63', '#9C27B0']
+        },
         enabled: false
       },
       title: {
@@ -180,6 +214,7 @@ export class HealthComponent {
         align: "left"
       },
       markers: {
+        colors: ['#F44336', '#E91E63', '#9C27B0'],
         hover: {
           sizeOffset: 4
         }
@@ -192,17 +227,27 @@ export class HealthComponent {
       series: [
         {
           name: "Error Count",
-          data: UErrors
+          data: UErrors,
+          color:'#65FE08'
         }
       ],
       chart: {
+        animations:{
+          enabled:false,
+        },
         type: "line",
-        height: 350
+        height: 300,
+        width:500,
+        background: '#000',
+        foreColor:'#65FE08'
       },
       stroke: {
         curve: "stepline"
       },
       dataLabels: {
+        style: {
+          colors: ['#F44336', '#E91E63', '#9C27B0']
+        },
         enabled: false
       },
       title: {
@@ -210,6 +255,7 @@ export class HealthComponent {
         align: "left"
       },
       markers: {
+        colors: ['#F44336', '#E91E63', '#9C27B0'],
         hover: {
           sizeOffset: 4
         }
@@ -243,19 +289,27 @@ export class HealthComponent {
   }
 
   refreshChart() {
-    setInterval(this.onTheMinFunc.bind(this), 5000);
+    setInterval(this.onTheMinFunc.bind(this), 2000);
   }
 
   simulate404(){
-    this.healthService.generate404().subscribe(d=>console.log(d));}
+    this.healthService.generate404().subscribe(d=>console.log(d));
+  }
 
   simulate500(){
-    this.healthService.generate500().subscribe(d=>console.log(d));}
+    this.healthService.generate500().subscribe(d=>console.log(d));
+  }
 
   simulate401(){
-    this.healthService.generate401().subscribe(d=>console.log(d));}
+    this.healthService.generate401().subscribe(d=>console.log(d));
+  }
 
   simulatex(){
-    this.healthService.generatex().subscribe(d=>console.log(d));}
+    this.healthService.generatex().subscribe(d=>console.log(d));
+  }
 
+  loadLogs(id:any){
+    this.healthService.getLogs(id).subscribe(d=> {this.listLogs=d;
+    console.log(this.listLogs)},error => console.log(error))
+  }
 }

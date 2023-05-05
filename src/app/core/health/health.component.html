@@ -1,20 +1,47 @@
 
 
+<div class="parent">
+  <div class="div1"> E-Spare App Monitoring<br>
+    <button class="btn-oc" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Open Menu</button>
+  </div>
+  <div class="div2">
+    <img src="../../assets/images/ha.jpg" alt="" style="height: 100px;width: 380px;"></div>
+  </div>
 <!-- Modal -->
 <div class="modal" id="exampleModal" tabindex="1" role="dialog" aria-bs-labelledby="exampleModalLabel" aria-bs-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title black" id="exampleModalLabel">RAPPORT DE REPLICATION DES DONNEES</h5>
+        <h5 class="modal-title" id="exampleModalLabel">RAPPORT DE REPLICATION DES DONNEES</h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-bs-label="Close">
           <span aria-bs-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body black">
+      <div class="modal-body">
         <p *ngFor="let rep of listReplication">{{rep}}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn-oc btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LogsModal -->
+<div class="modal" id="logsModal" tabindex="1" role="dialog" aria-bs-labelledby="logsModalLabel" aria-bs-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logsModalLabel">LOGS</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-bs-label="Close">
+          <span aria-bs-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scroll">
+        <p *ngFor="let ch of listLogs">{{ch}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-oc btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -109,12 +136,28 @@
   </div>
 </div>
 
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title octitle" id="offcanvasWithBothOptionsLabel">Monitoring Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body ocbody">
+    <p><b>You can survey the trace logs, check the database health, Check every table independently</b></p>
+    <button class="btn btn-log" (click)="loadLogs(1)" data-bs-toggle="modal" data-bs-target="#logsModal" >Authorization Logs</button>
+    <button class="btn btn-log" (click)="loadLogs(2)" data-bs-toggle="modal" data-bs-target="#logsModal" >Server-Side Logs</button>
+    <button class="btn btn-log" (click)="loadLogs(3)" data-bs-toggle="modal" data-bs-target="#logsModal" >Path Logs</button>
+    <button class="btn btn-log" (click)="loadLogs(4)" data-bs-toggle="modal" data-bs-target="#logsModal" >Logs</button>
+    <button class="btn btn-h">Database Health</button>
+    <button class="btn btn-h">Invoice Data Health</button>
+  </div>
+</div>
 <!-- Content Row -->
 
 <div class="container">
   <div class="row">
     <div class="col">
-      <div id="chart">
+      <div id="chart" class="chart">
         <apx-chart
           [series]="authChartOptions.series"
           [chart]="authChartOptions.chart"
@@ -126,7 +169,7 @@
       </div>
     </div>
     <div class="col">
-      <div id="pathchart">
+      <div id="pathchart" class="chart">
         <apx-chart
           [series]="pathChartOptions.series"
           [chart]="pathChartOptions.chart"
@@ -173,13 +216,13 @@
       <div class="card-body">
           <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                       Error Simulator</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800 center-buttons">
-                    <button class="btn btn-warning" (click)="simulate404()">Path Error (404)</button>
-                    <button class="btn btn-danger" (click)="simulate500()">Backend Error (500)</button>
-                    <button class="btn btn-danger" (click)="simulate401()">Unauthorized Error (401)</button>
-                    <button class="btn btn-secondary" (click)="simulatex()">Unknown Error(x)</button>
+                    <button class="btn-oc" (click)="simulate404()">Path Error (404)</button>
+                    <button class="btn-oc" (click)="simulate500()">Backend Error (500)</button>
+                    <button class="btn-oc" (click)="simulate401()">Unauthorized Error (401)</button>
+                    <button class="btn-oc" (click)="simulatex()">Unknown Error(x)</button>
                   </div>
               </div>
               <div class="col-auto">

@@ -3,18 +3,19 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { faDashboard } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css','../../assets/css/app.css']
 })
 export class SidebarComponent {
   private constructor() {  }
   status = 1;
+  dashIcon = faDashboard;
   userIcon = faUser;
   commandeIcon = faCartShopping;
   factureIcon = faEnvelope;
@@ -44,4 +45,10 @@ export class SidebarComponent {
     }
   }
 
+  ngOnInit(){
+  }
+
 }
+
+
+

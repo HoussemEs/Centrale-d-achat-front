@@ -61,7 +61,7 @@ export class HealthComponent {
   constructor(private healthService:HealthService,private spinner: NgxSpinnerService, private route:Router){  }
 
   ngOnInit(){
-
+    localStorage.setItem("monitoringMode","1");
     this.healthService.getErrors(1).subscribe(d =>{
       this.number = JSON.parse(d.toString());
       authErrors.push(this.number)
@@ -97,6 +97,8 @@ export class HealthComponent {
     this.initBackChart();
     this.initUChart();
     this.refreshChart();
+
+    // window.location.reload();
   }
 
   initAuthChart(){

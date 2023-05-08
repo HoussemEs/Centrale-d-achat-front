@@ -3,6 +3,8 @@
 <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium" bdColor="rgba(32, 55, 77, 0.85)" style="color:white!important">
   <p class="loading" ><Strong>Please wait..<br>Do not shutdown!</Strong></p>
 </ngx-spinner>
+<div class="wrapper">
+
 <div *ngIf="userType=='admin' && monitoringMode==0" class="nav">
   <app-nav></app-nav>
 </div>
@@ -12,11 +14,13 @@
 <div *ngIf="monitoringMode!=0" class="body body_reporting">
   <router-outlet></router-outlet>
 </div>
-<div *ngIf="userType=='admin' && monitoringMode==0" class="body body_admin">
+<div *ngIf="userType=='admin' && monitoringMode==0" id="body_admin" class="body body_admin main">
   <router-outlet></router-outlet>
 </div>
 <div *ngIf="userType=='user'" class="body_user">
   <router-outlet></router-outlet>
+</div>
+
 </div>
   <!--
 <div class="body">
@@ -90,3 +94,6 @@
   </ul>
 </div >
 -->
+<script>
+  feather.replace()
+</script>

@@ -6,6 +6,9 @@ import { ApexAxisChartSeries, ApexYAxis, ApexTitleSubtitle } from "ng-apexcharts
 
 import { ApexDataLabels, ApexPlotOptions, ApexLegend, ApexGrid } from "ng-apexcharts";
 import { SharedService } from 'src/app/shared/services/shared-service.service';
+import jsVectorMap from 'jsvectormap'
+
+// import jsVectorMap from 'jsvectormap/dist/maps/world.js'
 
 type ApexXAxis = {
   type?: "category" | "datetime" | "numeric";
@@ -57,6 +60,7 @@ export class DashboardComponent {
   constructor(private sharedService : SharedService) {
   }
   ngOnInit(){
+    document.getElementById("dash_element").classList.add('active');
     this.sharedService.getAnnualRevenue(2023).subscribe(d=> {
         this.distData=d;
         this.distChart();
@@ -64,6 +68,12 @@ export class DashboardComponent {
     this.sharedService.getPendingDeliveries().subscribe(pd=> this.pendingDeliveries=pd);
     this.sharedService.getLateDeliveries().subscribe(dl=> this.lateDeliveries=dl);
     this.pieChart();
+
+  }
+
+  ngOnDestroy(){
+    console.log("destroyed");
+    document.getElementById("dash_element").classList.remove('active');
   }
 
 

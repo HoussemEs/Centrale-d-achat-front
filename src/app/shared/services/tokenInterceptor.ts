@@ -40,14 +40,14 @@ export class TokenInterceptor implements HttpInterceptor {
         }
 
         if (error.status === 401) {
-            this.healthService.addError(1,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
-            this.healthService.getErrors(1).subscribe(d => console.log(d) );
+            // this.healthService.addError(1,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
+            // this.healthService.getErrors(1).subscribe(d => console.log(d) );
         } else if (error.status === 500) {
-            this.healthService.addError(2,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
+            // this.healthService.addError(2,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
         } else if (error.status === 404) {
-            this.healthService.addError(3,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
+            // this.healthService.addError(3,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
         } else {
-            this.healthService.addError(4,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
+            // this.healthService.addError(4,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
         }
         return throwError(error);
       })

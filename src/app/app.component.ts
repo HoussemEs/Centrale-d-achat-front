@@ -6,7 +6,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css',"./assets/css/app.css"]
 })
 
 export class AppComponent {

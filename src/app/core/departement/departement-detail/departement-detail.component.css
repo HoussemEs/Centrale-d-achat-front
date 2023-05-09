@@ -1,16 +1,4 @@
-/*
-.table{
-  table-layout: auto;
-  border-color: transparent;
-  border-width: 0px!important;
-  border-color: #000;
-  border-spacing: 10px;
-  border-color: transparent!important;
-  margin-top: 20px!important;
-  width:70%;
-  margin: auto!important;
-  outline: none;
-} */
+
 .tr,.td{
   padding: 10px;
   color: #000;
@@ -35,4 +23,7 @@ a{
 }
 a:visited{
   text-decoration: none;
+}
+.modal{
+  color:black;
 }

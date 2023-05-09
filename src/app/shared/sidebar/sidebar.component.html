@@ -52,21 +52,21 @@
         Tools & Components
       </li>
 
-      <li class="sidebar-item">
-        <a class="sidebar-link" href="ui-buttons.html">
-          <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+      <li class="sidebar-item" id="emplacement_element">
+        <a class="sidebar-link" [routerLink]="['emplacement']">
+          <fa-icon [icon]=empIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Emplacements</span>
         </a>
       </li>
 
-      <li class="sidebar-item">
-        <a class="sidebar-link" href="ui-forms.html">
-          <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
+      <li class="sidebar-item" id="dept_element">
+        <a class="sidebar-link" [routerLink]="['departement']">
+          <fa-icon [icon]=depIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Departements</span>
         </a>
       </li>
 
-      <li class="sidebar-item">
-        <a class="sidebar-link" href="ui-cards.html">
-          <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
+      <li class="sidebar-item" id="employee_element">
+        <a class="sidebar-link" [routerLink]="['employee']">
+          <fa-icon [icon]=employeeIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Employees</span>
         </a>
       </li>
 

@@ -58,7 +58,7 @@
           <td class="td number">CVV</td>
           <td class="td number">Etat</td>
           <td class="td number">Date Paiement</td>
-          <td class="td btn"></td>
+          <td class="td number"></td>
         </tr>
       </thead>
       <tbody>
@@ -81,8 +81,9 @@
                           <!-- END -->
           <td class="td number" *ngIf="paiement.etatPaiement==1"><span class="badge bg-success">Réglée</span></td>
           <td class="td number" *ngIf="paiement.etatPaiement==0"><span class="badge bg-danger">Manquant</span></td>
+          <td class="td number" *ngIf="paiement.etatPaiement==-1"><span class="badge bg-primary">Annulé</span></td>
           <td class="td number">{{paiement.datePaiement}}</td>
-          <td class="td btn"></td>
+          <td class="td number"></td>
         </tr>
       </tbody>
     </table>

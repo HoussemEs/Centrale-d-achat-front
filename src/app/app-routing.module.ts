@@ -17,6 +17,13 @@ import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
 import { HealthComponent } from './core/health/health.component';
 import { BackupsComponent } from './core/health/backups/backups.component';
+import { DepartementComponent } from './core/departement/departement.component';
+import { EmplacementComponent } from './core/emplacement/emplacement.component';
+import { AddEmployeeComponent } from './core/employee/add-employee/add-employee.component';
+import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
+import { EmplacementDetailComponent } from './core/emplacement/emplacement-detail/emplacement-detail.component';
+import { DepartementDetailComponent } from './core/departement/departement-detail/departement-detail.component';
 
 const routes: Routes = [
   {path:"health",component:HealthComponent},
@@ -30,6 +37,14 @@ const routes: Routes = [
   {path:"support/:text",component:SupportComponent},
   {path:"test",component:TestComponent},
   {path:"shop",component:ShopComponent},
+  {path:"departement",component:DepartementComponent},
+  {path:"employee",component:EmplacementComponent},
+  {path:"employee/de/:idEmpDep",component:DepartementDetailComponent},
+  {path:"employee/add/:idEmp/:idDep",component:AddEmployeeComponent},
+  {path:"emplacement",component:EmplacementComponent},
+  {path:"emplacement/add",component:AddEmplacementComponent},
+  {path:"emplacement/edit/:idEmp",component:EditEmplacementComponent},
+  {path:"emplacement/dp/:idEmp",component:EmplacementDetailComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"facture/detail/:factid",component:DetailComponent},
   {path: 'shop',component: ShopComponent,

@@ -54,6 +54,14 @@ import { HealthComponent } from './core/health/health.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BackupsComponent } from './core/health/backups/backups.component';
 import { HealthService } from './shared/services/health.service';
+import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
+import { DepartementComponent } from './core/departement/departement.component';
+import { EmployeeComponent } from './core/employee/employee.component';
+import { AddEmployeeComponent } from './core/employee/add-employee/add-employee.component';
+import { departementService } from './shared/services/departement.service';
+import { EmployeeService } from './shared/services/employee.service';
+import { DepartementDetailComponent } from './core/departement/departement-detail/departement-detail.component';
+import { EmplacementDetailComponent } from './core/emplacement/emplacement-detail/emplacement-detail.component';
 
 
 
@@ -84,7 +92,13 @@ import { HealthService } from './shared/services/health.service';
     EmplacementComponent,
     AddEmplacementComponent,
     HealthComponent,
-    BackupsComponent
+    BackupsComponent,
+    EditEmplacementComponent,
+    DepartementComponent,
+    EmployeeComponent,
+    AddEmployeeComponent,
+    DepartementDetailComponent,
+    EmplacementDetailComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
@@ -93,6 +107,7 @@ import { HealthService } from './shared/services/health.service';
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,
+    departementService,EmployeeService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

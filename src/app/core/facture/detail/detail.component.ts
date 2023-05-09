@@ -13,19 +13,12 @@ export class DetailComponent {
   idFact: any;
   listCommandes:any=[];
   detailGeneral:any;
-  total=0;
   constructor(private activatedRoute: ActivatedRoute, private factureService : FactureServiceService){}
 
   ngOnInit(){
     this.activatedRoute.params.subscribe(s => { this.idFact=s['factid'] });
     this.factureService.getDetailCommande(this.idFact).subscribe(df=> {this.detailGeneral = df; console.log(this.detailGeneral)});
-    this.factureService.getDetailFacture(this.idFact).subscribe(d=> {
-      this.listCommandes = d;
-      // determine the total price
-      this.listCommandes.forEach(ar => {
-        this.total = this.total + (ar.prixArticle * ar.quantite);
-      });
-    });
+    this.factureService.getDetailFacture(this.idFact).subscribe(d=> {this.listCommandes = d;});
   }
 
   changeFirst(){

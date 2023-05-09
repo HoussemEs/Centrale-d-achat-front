@@ -44,7 +44,6 @@ export class CheckoutComponent {
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.typeLivraison.push()
     this.firstFormGroup = this._formBuilder.group({
       typeLivraison: ['', Validators.required],
       adresseLivraison: ['', Validators.required],

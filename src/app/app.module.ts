@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CommonService } from './common.service';
 import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './shared/nav/nav.component';
 import { FactureComponent } from './core/facture/facture.component';
@@ -34,22 +35,25 @@ import { SupportComponent } from './core/support/support.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TestComponent } from './core/test/test.component';
-import { DeliveryService } from './shared/services/delivery.service';
-import { ShopComponent } from './core/shop/shop.component';
-import { DashboardComponent } from './core/dashboard/dashboard.component';
-import { HeaderComponent } from './core/shop/header/header.component';
-import { FooterComponent } from './core/shop/footer/footer.component';
-import { HomeComponent } from './core/shop/home/home.component';
-import { AboutComponent } from './core/shop/about/about.component';
-import { ErrorComponent } from './shared/error/error.component';
-import { HistoryComponent } from './core/shop/history/history.component';
-import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
-import { SharedService } from './shared/services/shared-service.service';
-import { EmplacementService } from './shared/services/emplacement.service';
-import { EmplacementComponent } from './core/emplacement/emplacement.component';
-import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { AddProduitComponent } from './core/produit/add-produit/add-produit.component';
+import { ProduitComponent } from './core/produit/produit.component';
+import { ProduitService } from './shared/services/produit.service';
+import { AddmarqueComponent } from './core/marque/addmarque/addmarque.component';
+import { MarqueService } from './shared/services/marque.service';
+import { AddCategorieComponent } from './core/categorie/add-categorie/add-categorie.component';
+import { CategorieComponent } from './core/categorie/categorie.component';
+import { CategorieService } from './shared/services/categorie.service';
+import { MarqueComponent } from './core/marque/marque.component';
+import { UpdatemarqueComponent } from './core/marque/updatemarque/updatemarque.component';
+import { UpdateCategorieComponent } from './core/categorie/update-categorie/update-categorie.component';
+import { EditproduitComponent } from './core/produit/editproduit/editproduit.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
+<<<<<<< Updated upstream
+=======
+;
+
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -66,6 +70,7 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
     CheckoutComponent,
     DetailComponent,
     SupportComponent,
+<<<<<<< Updated upstream
     TestComponent,
     ShopComponent,
     DashboardComponent,
@@ -78,14 +83,35 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
     HistoryDetailComponent,
     EmplacementComponent,
     AddEmplacementComponent
+=======
+    AddProduitComponent,
+    ProduitComponent,
+    AddmarqueComponent,
+    AddCategorieComponent,
+    CategorieComponent,
+    MarqueComponent,
+    UpdatemarqueComponent,
+    UpdateCategorieComponent,
+    EditproduitComponent,
+     
+    
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
+<<<<<<< Updated upstream
     FormsModule,MatAutocompleteModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,
+=======
+    FormsModule,MatAutocompleteModule,NgxPaginationModule
+
+  ],
+  providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
+    PaiementService,MatDatepickerModule,ProduitService,MarqueService,CategorieService,
+>>>>>>> Stashed changes
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

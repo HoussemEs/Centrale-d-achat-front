@@ -1,8 +1,8 @@
-<h1>Ajouter un emplacement</h1>
+<h1 style="color:black;">Editér un emplacement</h1>
 
-<form class="form-container">
-  <div class="form-group">
-    <label for="nomEmplacement">Nom de l'emplacement :</label>
+<form class="form-container"  style="color:black;">
+  <div class="form-group" >
+    <label for="nomEmplacement" >Nom de l'emplacement :</label>
     <input type="text" [(ngModel)]="emp.nomEmplacement" name="nomEmplacement" id="nomEmplacement" class="form-control" placeholder="Entrez le nom de l'emplacement">
   </div>
 
@@ -16,15 +16,13 @@
     <input type="text" [(ngModel)]="emp.gouvernorat" name="gouvernorat" id="gouvernorat" class="form-control" placeholder="Entrez le gouvernorat de l'emplacement">
   </div>
 
-  <div class="form-group">
-    <label for="departement">Département :</label>
-    <mat-form-field appearance="fill" class="form-control">
+    <label for="departement">Département :</label><br>
+    <mat-form-field appearance="fill" style="width:400px; margin-right:2%;">
       <mat-label>Sélectionnez un département</mat-label>
       <mat-select [formControl]="toppings" multiple (selectionChange)="filter($event)" multiple [(value)]="selected" >
         <mat-option *ngFor="let dp of dpList" [value]="dp.departmentId">{{dp.departmentName}}</mat-option>
       </mat-select>
     </mat-form-field>
-  </div>
 
   <button type="submit" (click)="updateEmplacement()" class="btn btn-primary">Enregistrer</button>
 </form>

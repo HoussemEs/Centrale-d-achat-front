@@ -46,6 +46,10 @@
   background-color: rgb(238, 238, 238)!important;
   padding:10px;
 }
+.dependent{
+  visibility: hidden;
+  height: 0;
+}
 ::ng-deep .mdc-text-field__input{
   padding:10px;
 }

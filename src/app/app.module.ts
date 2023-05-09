@@ -49,12 +49,22 @@ import { SharedService } from './shared/services/shared-service.service';
 import { EmplacementService } from './shared/services/emplacement.service';
 import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { HealthComponent } from './core/health/health.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BackupsComponent } from './core/health/backups/backups.component';
+import { HealthService } from './shared/services/health.service';
 import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
 import { DepartementComponent } from './core/departement/departement.component';
-import { CoreService } from './shared/services/core.service';
-import { departementService } from './shared/services/departement.service';
 import { EmployeeComponent } from './core/employee/employee.component';
 import { AddEmployeeComponent } from './core/employee/add-employee/add-employee.component';
+import { departementService } from './shared/services/departement.service';
+import { EmployeeService } from './shared/services/employee.service';
+import { DepartementDetailComponent } from './core/departement/departement-detail/departement-detail.component';
+import { EmplacementDetailComponent } from './core/emplacement/emplacement-detail/emplacement-detail.component';
+import { PerformanceComponent } from './core/employee/performance/performance.component';
+import { PerformanceService } from './shared/services/performance.service';
+import { RatingModule } from '@syncfusion/ej2-angular-inputs';
 
 
 
@@ -84,19 +94,24 @@ import { AddEmployeeComponent } from './core/employee/add-employee/add-employee.
     HistoryDetailComponent,
     EmplacementComponent,
     AddEmplacementComponent,
+    HealthComponent,
+    BackupsComponent,
     EditEmplacementComponent,
     DepartementComponent,
     EmployeeComponent,
-    AddEmployeeComponent
-    
+    AddEmployeeComponent,
+    DepartementDetailComponent,
+    EmplacementDetailComponent,
+    PerformanceComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-    FormsModule,MatAutocompleteModule
+    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule,RatingModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,CoreService,departementService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,
+    departementService,EmployeeService,PerformanceService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

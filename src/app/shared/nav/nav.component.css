@@ -1,4 +1,4 @@
-
+/*
 .header_container{
   padding-left:320px!important;
   padding-top: 13px;
@@ -8,7 +8,7 @@
   line-height: 20px!important;
   white-space: nowrap;
   /* overflow: hidden; */
-}
+/* }
 .left_side{
   display: inline-block;
   width: 100%;
@@ -27,4 +27,18 @@
   background-color: transparent;
   border-color: transparent;
   color: white;
+} */
+
+
+::ng-deep * .nav{
+  display: block!important;
 }
+
+
+::ng-deep * .main{
+  background: #f5f7fb;
+  }
+
+  .sidebar-toggle{
+    margin-left : 20%;
+  }

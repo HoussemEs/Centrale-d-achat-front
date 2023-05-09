@@ -45,6 +45,7 @@ export class DeliveryComponent {
   constructor(private deliveryService : DeliveryService, private livreurService:LivreurService, private _formBuilder: FormBuilder){}
 
   ngOnInit(){
+    document.getElementById("delivery_element").classList.add('active');
     this.Form = this._formBuilder.group({
       nomLivreur: ['', this.myControl],
       societeLivraison: ['', Validators.required],
@@ -70,6 +71,10 @@ export class DeliveryComponent {
         this.deliveryService.getDeliveryDetails(delivery.livraisonId).subscribe(details => {this.detailedList.push(details);})
       });
     });
+  }
+
+  ngOnDestroy(){
+    document.getElementById("delivery_element").classList.remove('active');
   }
 
   getSuggestions(){

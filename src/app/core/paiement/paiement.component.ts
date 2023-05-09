@@ -12,6 +12,11 @@ export class PaiementComponent {
   constructor(private paiementService : PaiementService){}
 
   ngOnInit(){
+    document.getElementById("paiement_element").classList.add('active');
     this.paiementService.getAllPaiements().subscribe(data => this.listPaiements = data);
+  }
+
+  ngOnDestroy(){
+    document.getElementById("paiement_element").classList.remove('active');
   }
 }

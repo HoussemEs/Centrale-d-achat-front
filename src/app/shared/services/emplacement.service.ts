@@ -33,4 +33,10 @@ export class EmplacementService {
   getEmpDep(idEmp:any){
     return this.http.get("http://localhost:8099/empd/"+idEmp) .pipe(map((response: Response) => response))
   }
+
+  getDetailEmpDTO(idEmp: any) {
+    return this.http.get("http://localhost:8099/emplacements/detail/"+idEmp) .pipe(map((response: Response) => response))
+  }
+
+
 }

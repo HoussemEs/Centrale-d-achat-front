@@ -1,6 +1,6 @@
 <div class="component_body">
 <h1>List deliveries</h1>
-<table border='1' class="table">
+<!-- <table border='1' class="table">
   <tr class="tr">
     <td class="td number">delivery N</td>
     <td class="td number">Commande</td>
@@ -38,14 +38,76 @@
       <div *ngIf="delivery.dateLivraison==null && delivery.dateEnvoi!=null">
         <button  type="button" class="btn_modal" id="modal_btn" (click)="setShipped(delivery.livraisonId)" style="font-size:11px!important;">Changer Etat à livrée</button>
       </div>
-    </td>
+    </td> -->
 
     <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
     <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
     <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
     -->
-  </tr>
-</table>
+  <!-- </tr>
+</table> -->
+
+
+
+<div class="col-12 col-lg-8 col-xxl-11 d-flex">
+  <div class="card flex-fill">
+    <div class="card-header">
+
+      <h5 class="card-title mb-0">Latest Projects</h5>
+    </div>
+    <table class="table table-hover my-0">
+      <thead>
+        <tr>
+          <td class="td number">delivery N</td>
+          <td class="td number">Commande</td>
+          <td class="td number">Emplacement Origine</td>
+          <td class="td number">Numéro Client</td>
+          <td class="td number">Date d'envoi</td>
+          <td class="td number">Date Livraison Prévu</td>
+          <td class="td number">Date Livraison</td>
+          <td class="td number">Type Livraison</td>
+          <td class="td number">Adresse de Livraison</td>
+          <td class="td number">Etat</td>
+          <td class="td number">Action</td>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let delivery of detailedList; let ind= index"  class="tr">
+
+        <td class="td number">{{delivery.livraisonId}}</td>
+        <td class="td number"><a routerLink="/facture/detail/{{delivery.factureId}}">{{delivery.factureId}}</a></td>
+        <td class="td number">{{delivery.emplacementOrigine}}</td>
+        <td class="td number">{{delivery.numTelReception}}</td>
+        <td class="td number" *ngIf="delivery.dateEnvoi==null"><span  class="badge bg-warning">Pending..</span></td>
+        <td class="td number" *ngIf="delivery.dateEnvoi!=null">{{delivery.dateEnvoi}}</td>
+        <td class="td number">{{delivery.dateLivraisonPrevu}}</td>
+        <td class="td number" *ngIf="delivery.dateLivraison==null"><span  class="badge bg-warning">Pending..</span></td>
+        <td class="td number" *ngIf="delivery.dateLivraison!=null">{{delivery.dateLivraison}}</td>
+        <td class="td number" *ngIf="delivery.typeLivraison==1">Basique</td>
+        <td class="td number" *ngIf="delivery.typeLivraison==2">Enlevement Inclus</td>
+        <td class="td number" *ngIf="delivery.typeLivraison==3">Urgente</td>
+        <td class="td number">{{delivery.adresseLivraison}}</td>
+        <td class="td number" style="color:red; font-weight: 700" *ngIf="delivery.etatLivraison==-1"><span  class="badge bg-danger">Canceled</span></td>
+        <td class="td number" style="color:green; font-weight: 700" *ngIf="delivery.etatLivraison==0"><span  class="badge bg-success">Confirmed</span></td>
+        <td class="td number">
+          <div *ngIf="delivery.dateEnvoi==null && delivery.etatLivraison!=-1">
+            <button  type="button" class="btn btn-success" id="modal_btn" (click)="displayModal(delivery.livraisonId)" style="font-size:11px!important;">Assigner Livreur</button>
+          </div>
+          <div *ngIf="delivery.dateLivraison==null && delivery.dateEnvoi!=null && delivery.etatLivraison!=-1">
+            <button  type="button" class="btn btn-success" id="modal_btn" (click)="setShipped(delivery.livraisonId)" style="font-size:11px!important;">Changer Etat à livrée</button>
+          </div>
+        </td>
+
+        <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+        <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+        <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+        -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
  <!-- Trigger the modal with a button -->
 

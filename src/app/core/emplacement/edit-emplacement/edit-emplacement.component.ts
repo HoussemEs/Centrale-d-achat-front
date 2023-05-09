@@ -23,7 +23,7 @@ export class EditEmplacementComponent {
   };
   idEmp: any;
 
-  
+
   toppings = new FormControl([0]);
   dpList: any=[];
   listdp :any;
@@ -48,8 +48,8 @@ export class EditEmplacementComponent {
       this.emplacementService.getEmpDep(this.idEmp).subscribe(d=> {
         this.listdp=d;
         console.log(this.listdp);
-        this.listdp.forEach(dpp => { 
-          
+        this.listdp.forEach(dpp => {
+
           // this.i =1;
           console.log(dpp.departmentId);
           this.dppList.push(dpp.departmentId);
@@ -63,7 +63,7 @@ export class EditEmplacementComponent {
   filter(data){
     console.log(data.value);
   }
-  
+
   updateEmplacement(){
     this.emplacementService.updateEmplacement(this.emp, this.idEmp).subscribe((response:any)=>{
       this.route.navigate["/emplacement"];
@@ -72,6 +72,7 @@ export class EditEmplacementComponent {
     this.depts.forEach(idDep => {
       this.dpService.assignEmpDep(this.idEmp,idDep).subscribe(d=> {console.log(d)},error => console.log(error))
     });
+    this.route.navigate(['/emplacement'], {relativeTo: this.activatedRoute})
   }
 
 }

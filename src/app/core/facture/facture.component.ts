@@ -16,7 +16,12 @@ export class FactureComponent {
   constructor(private factureService: FactureServiceService) {   }
 
   ngOnInit(){
+    document.getElementById("fact_element").classList.add('active');
     this.factureService.getFactures().subscribe(data => this.listFactures = data);
+  }
+
+  ngOnDestroy(){
+    document.getElementById("fact_element").classList.remove('active');
   }
 
 }

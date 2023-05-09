@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { departementService } from 'src/app/shared/services/departement.service';
 import { EmplacementService } from 'src/app/shared/services/emplacement.service';
 
@@ -29,7 +30,8 @@ export class AddEmplacementComponent {
   depts: any=[];
 
 
-  constructor(private emplacementService:EmplacementService, private dpService:departementService){}
+  constructor(private emplacementService:EmplacementService, private dpService:departementService,
+    private route:Router, private activatedRoute:ActivatedRoute){}
 
   ngOnInit(){
     this.dpService.getDepartementList().subscribe(d=> {this.listdp = d;
@@ -48,6 +50,7 @@ export class AddEmplacementComponent {
       });
       console.log(this.response );
     },error => console.log(error));
+    this.route.navigate(['/emplacement'], {relativeTo: this.activatedRoute})
   }
 
 }

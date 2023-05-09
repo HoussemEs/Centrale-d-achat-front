@@ -3,27 +3,32 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { faDashboard } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 import { faLocation } from '@fortawesome/free-solid-svg-icons';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons';
-
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css','../../assets/css/app.css']
 })
 export class SidebarComponent {
   private constructor() {  }
   status = 1;
+  employeeIcon = faUserAlt;
+  empIcon = faLocation;
+  depIcon = faBuilding;
+  dashIcon = faDashboard;
   userIcon = faUser;
   commandeIcon = faCartShopping;
   factureIcon = faEnvelope;
   deliveryIcon = faTruckFast;
   paiementIcon = faMoneyBill;
   searchIcon = faSearch;
-  emplacementIcon = faLocation;
-  depIcon = faBuilding;
+  healthIcon = faHeartbeat;
   openNav() {
     if(document.getElementById("mySidenav").style.width == "60px"){
       document.getElementById("sidenav_btn").style.paddingLeft = "270px";
@@ -34,8 +39,6 @@ export class SidebarComponent {
       document.getElementById("sidenav_text4").style.visibility = "visible";
       document.getElementById("sidenav_text5").style.visibility = "visible";
       document.getElementById("sidenav_text6").style.visibility = "visible";
-      document.getElementById("sidenav_text7").style.visibility = "visible";
-
     }else{
       document.getElementById("mySidenav").style.width = "60px";
       document.getElementById("sidenav_btn").style.paddingLeft = "80px";
@@ -45,9 +48,13 @@ export class SidebarComponent {
       document.getElementById("sidenav_text4").style.visibility = "hidden";
       document.getElementById("sidenav_text5").style.visibility = "hidden";
       document.getElementById("sidenav_text6").style.visibility = "hidden";
-      document.getElementById("sidenav_text7").style.visibility = "hidden";
-
     }
   }
 
+  ngOnInit(){
+  }
+
 }
+
+
+

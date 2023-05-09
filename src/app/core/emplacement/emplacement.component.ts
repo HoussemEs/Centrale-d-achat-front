@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmplacementService } from 'src/app/shared/services/emplacement.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class EmplacementComponent implements OnInit {
   emplacement:any = {};
   isUpdate:boolean = false;
 
-  constructor(private emplacementService: EmplacementService) { }
+  constructor(private emplacementService: EmplacementService,private route:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.getAllEmplacements();
@@ -37,6 +38,7 @@ export class EmplacementComponent implements OnInit {
     this.emplacementService.deleteEmplacement(emplacementId).subscribe((response:any)=>{
       this.getAllEmplacements();
     })
+    this.route.navigate(['/emplacement'], {relativeTo: this.activatedRoute})
   }
 
   editEmplacement(emplacement:any){

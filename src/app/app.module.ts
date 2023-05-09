@@ -62,6 +62,9 @@ import { departementService } from './shared/services/departement.service';
 import { EmployeeService } from './shared/services/employee.service';
 import { DepartementDetailComponent } from './core/departement/departement-detail/departement-detail.component';
 import { EmplacementDetailComponent } from './core/emplacement/emplacement-detail/emplacement-detail.component';
+import { PerformanceComponent } from './core/employee/performance/performance.component';
+import { PerformanceService } from './shared/services/performance.service';
+import { RatingModule } from '@syncfusion/ej2-angular-inputs';
 
 
 
@@ -98,16 +101,17 @@ import { EmplacementDetailComponent } from './core/emplacement/emplacement-detai
     EmployeeComponent,
     AddEmployeeComponent,
     DepartementDetailComponent,
-    EmplacementDetailComponent
+    EmplacementDetailComponent,
+    PerformanceComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule
+    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule,RatingModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,
-    departementService,EmployeeService,
+    departementService,EmployeeService,PerformanceService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

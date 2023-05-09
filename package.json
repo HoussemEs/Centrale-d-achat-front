@@ -27,6 +27,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@ng-bootstrap/ng-bootstrap": "^14.1.0",
     "@popperjs/core": "^2.11.7",
+    "@syncfusion/ej2-angular-inputs": "^21.2.4",
+    "@syncfusion/ej2-angular-schedule": "^21.2.4",
     "@types/jquery": "^3.5.16",
     "@types/jwt-decode": "^3.1.0",
     "angular-feather": "^6.5.0",

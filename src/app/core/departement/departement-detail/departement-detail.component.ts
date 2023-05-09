@@ -29,6 +29,7 @@ export class DepartementDetailComponent {
   constructor(private employeeService:EmployeeService,private route:Router, private activatedRoute:ActivatedRoute){}
 
   ngOnInit(){
+    this.modalChoice=0;
     this.employeeService.getUserList().subscribe(d=> {this.usersList = d})
     this.activatedRoute.params.subscribe(s => { this.idEmpDep=s['idEmpDep'] });
     this.employeeService.getEmployeeByED(this.idEmpDep).subscribe(d=> {this.listEmployees = d;console.log(this.listEmployees);});
@@ -36,6 +37,9 @@ export class DepartementDetailComponent {
 
   displayModal(){
     document.getElementById("aemodal").style.display="block";
+    document.getElementById("labelusername").style.visibility="visible";
+    document.getElementById("labelusername").style.maxHeight="auto";
+    document.getElementById("selectusername").style.maxHeight="368px";
   }
 
   closeModal(){
@@ -59,7 +63,8 @@ export class DepartementDetailComponent {
     this.emp.jobTitle=Emp.jobTitle;
     this.emp.salary=Emp.salary;
     document.getElementById("aemodal").style.display="block";
-    this.employeeService.updateEmp(this.idEmp,this.emp)
+    console.log(this.idEmp);
+    // this.employeeService.updateEmp(this.idEmp,this.emp)
   }
 
   deleteEmp(idEmp:any){
@@ -68,7 +73,8 @@ export class DepartementDetailComponent {
   }
 
   updateEmp(emp:any){
-    this.employeeService.updateEmp(emp.emplacementId,emp).subscribe(d=> console.log(d));
+    this.employeeService.updateEmp(this.idEmp,emp).subscribe(d=> console.log(d));
+    this.route.navigate(['/employee/de/'+this.idEmpDep],{relativeTo:this.activatedRoute});
   }
 
 }

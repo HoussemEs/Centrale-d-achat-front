@@ -24,6 +24,7 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
 import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
 import { EmplacementDetailComponent } from './core/emplacement/emplacement-detail/emplacement-detail.component';
 import { DepartementDetailComponent } from './core/departement/departement-detail/departement-detail.component';
+import { PerformanceComponent } from './core/employee/performance/performance.component';
 
 const routes: Routes = [
   {path:"health",component:HealthComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path:"shop",component:ShopComponent},
   {path:"departement",component:DepartementComponent},
   {path:"employee",component:EmplacementComponent},
+  {path:"employee/performance/:idEmployee",component:PerformanceComponent},
   {path:"employee/de/:idEmpDep",component:DepartementDetailComponent},
   {path:"employee/add/:idEmp/:idDep",component:AddEmployeeComponent},
   {path:"emplacement",component:EmplacementComponent},

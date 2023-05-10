@@ -47,13 +47,26 @@ import { MarqueComponent } from './core/marque/marque.component';
 import { UpdatemarqueComponent } from './core/marque/updatemarque/updatemarque.component';
 import { UpdateCategorieComponent } from './core/categorie/update-categorie/update-categorie.component';
 import { EditproduitComponent } from './core/produit/editproduit/editproduit.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule, PaginationControlsComponent, PaginationControlsDirective } from 'ngx-pagination';
+import { TestComponent } from './core/test/test.component';
+import { ShopComponent } from './core/shop/shop.component';
+import { DashboardComponent } from './core/dashboard/dashboard.component';
+import { HeaderComponent } from './core/shop/header/header.component';
+import { FooterComponent } from './core/shop/footer/footer.component';
+import { HomeComponent } from './core/shop/home/home.component';
+import { AboutComponent } from './core/shop/about/about.component';
+import { ErrorComponent } from './shared/error/error.component';
+import { HistoryComponent } from './core/shop/history/history.component';
+import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
+import { EmplacementComponent } from './core/emplacement/emplacement.component';
+import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { DeliveryService } from './shared/services/delivery.service';
+import { EmplacementService } from './shared/services/emplacement.service';
+import { Marque } from './shared/models/marque';
+import { PrComponent } from './core/shop/pr/pr.component';
+import { PanierComponent } from './core/shop/panier/panier.component';
+import { PanierService } from './shared/services/panier.service';
 
-<<<<<<< Updated upstream
-=======
-;
-
->>>>>>> Stashed changes
 
 
 @NgModule({
@@ -70,7 +83,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CheckoutComponent,
     DetailComponent,
     SupportComponent,
-<<<<<<< Updated upstream
     TestComponent,
     ShopComponent,
     DashboardComponent,
@@ -82,36 +94,26 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HistoryComponent,
     HistoryDetailComponent,
     EmplacementComponent,
-    AddEmplacementComponent
-=======
-    AddProduitComponent,
+    AddEmplacementComponent,
     ProduitComponent,
-    AddmarqueComponent,
-    AddCategorieComponent,
-    CategorieComponent,
+    AddProduitComponent,
     MarqueComponent,
-    UpdatemarqueComponent,
-    UpdateCategorieComponent,
+    AddmarqueComponent,
+    CategorieComponent,
+    AddCategorieComponent,
     EditproduitComponent,
-     
-    
->>>>>>> Stashed changes
+    UpdateCategorieComponent,
+    UpdatemarqueComponent,
+    PrComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-<<<<<<< Updated upstream
-    FormsModule,MatAutocompleteModule
+    FormsModule,MatAutocompleteModule,NgxPaginationModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,
-=======
-    FormsModule,MatAutocompleteModule,NgxPaginationModule
-
-  ],
-  providers: [CommonService,FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,ProduitService,MarqueService,CategorieService,
->>>>>>> Stashed changes
+    PaiementService,MatDatepickerModule,DeliveryService,EmplacementService,PanierService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

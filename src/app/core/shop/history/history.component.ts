@@ -15,8 +15,8 @@ export class HistoryComponent {
 
   ngOnInit(){
     this.activatedRoute.params.subscribe(s => { this.username=s['username'] });
-    this.factureService.getOrderIdsList(this.username).subscribe(data => {
+    /*this.factureService.getOrderIdsList(this.username).subscribe(data => {
       this.ordersIds=data;
-    })
+    })*/
   }
 }

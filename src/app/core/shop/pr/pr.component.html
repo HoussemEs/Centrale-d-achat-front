@@ -1,0 +1,48 @@
+<section class="product_section ">
+    <div class="container">
+      <div class="product_heading">
+        <h2>
+          Nos Produits
+         </h2>
+      </div>
+      <tr *ngFor="let produit of listProduits"  class="tr">
+
+      <div class="product_container">
+        <div class="box">
+          <div class="box-content">
+            <div class="img-box">
+              <img src="{{ produit.imagee }}" alt="">
+            </div>
+            <div class="detail-box">
+              <div class="text">
+                <div class="h6">
+                  {{produit.nomArticle }}
+                </div>
+                <h5>
+                  <span>DT</span> {{produit.prixHT}}
+                </h5>
+              </div>
+              <div class="like">
+                <div class="h6">
+                  Like
+                </div>
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <!-- <i class="fa fa-star" aria-hidden="true"></i> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a class="a_href" href="">
+              Add To Cart
+            </a>
+          </div>
+        </div>
+        
+    </div>
+
+  <!-- end product section -->

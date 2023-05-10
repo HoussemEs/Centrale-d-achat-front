@@ -16,22 +16,7 @@ export class TokenInterceptor implements HttpInterceptor {
       }
     });
 
-<<<<<<< Updated upstream
-    this.responseclient = next.handle(request).pipe(
-      retry(1),
-      catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          localStorage.setItem('user','user');
-          this.router.navigate(['/shop/home']);
-          return of(new HttpResponse());
-        } else {
-          return throwError(error);
-        }
-      })
-    );
-    return this.responseclient;
-=======
+    
     return next.handle(request);
->>>>>>> Stashed changes
   }
 }

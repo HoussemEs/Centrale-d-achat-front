@@ -7,7 +7,6 @@ import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-del
 import { CheckoutComponent } from './core/checkout/checkout.component';
 import { DetailComponent } from './core/facture/detail/detail.component';
 import { SupportComponent } from './core/support/support.component';
-<<<<<<< Updated upstream
 import { TestComponent } from './core/test/test.component';
 import { ShopComponent } from './core/shop/shop.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
@@ -16,7 +15,6 @@ import { AboutComponent } from './core/shop/about/about.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { HistoryComponent } from './core/shop/history/history.component';
 import { HistoryDetailComponent } from './core/shop/history/history-detail/history-detail.component';
-=======
 import { AddProduitComponent } from './core/produit/add-produit/add-produit.component';
 import { ProduitComponent } from './core/produit/produit.component';
 import { AddmarqueComponent } from './core/marque/addmarque/addmarque.component';
@@ -26,7 +24,7 @@ import { UpdatemarqueComponent } from './core/marque/updatemarque/updatemarque.c
 import { CategorieComponent } from './core/categorie/categorie.component';
 import { UpdateCategorieComponent } from './core/categorie/update-categorie/update-categorie.component';
 import { EditproduitComponent } from './core/produit/editproduit/editproduit.component';
->>>>>>> Stashed changes
+import { PrComponent } from './core/shop/pr/pr.component';
 
 const routes: Routes = [
   {path:"facture",component:FactureComponent},
@@ -45,7 +43,22 @@ const routes: Routes = [
   {path: 'marques/update-marque/:id', component: UpdatemarqueComponent},
   {path: 'categories', component: CategorieComponent},
   {path: 'categories/update-categorie/:id', component: UpdateCategorieComponent},
-  {path: 'produits/update/:id', component: EditproduitComponent}
+  {path: 'produits/update/:id', component: EditproduitComponent},
+  
+
+  {path: 'shop',component: ShopComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'history/:username', component: HistoryComponent },
+      { path: 'history/detail/:idcommande', component: HistoryDetailComponent },
+      { path: 'products', component: PrComponent }
+      
+    ]
+  
+  },
+
 
   
 

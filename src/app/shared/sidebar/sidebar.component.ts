@@ -5,12 +5,9 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-<<<<<<< Updated upstream
-=======
 import { faBrain } from '@fortawesome/free-solid-svg-icons';
 
 
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-sidebar',
@@ -26,12 +23,9 @@ export class SidebarComponent {
   deliveryIcon = faTruckFast;
   paiementIcon = faMoneyBill;
   searchIcon = faSearch;
-<<<<<<< Updated upstream
-=======
   produitIcon=faMotorcycle;
   categoryIcon=faBook;
   marqueIcon=faM;
->>>>>>> Stashed changes
   openNav() {
     if(document.getElementById("mySidenav").style.width == "60px"){
       document.getElementById("sidenav_btn").style.paddingLeft = "270px";

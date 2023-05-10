@@ -1,12 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< Updated upstream
 <div *ngIf="userType=='admin'" class="nav">
-=======
-<div class="nav">
->>>>>>> Stashed changes
   <app-nav></app-nav>
 </div>
-<div class="sidebar">
+<div *ngIf="userType=='admin'" class="sidebar">
   <app-sidebar></app-sidebar>
 </div>
 <div class="body">

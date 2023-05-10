@@ -70,8 +70,11 @@ import { AddEditImpotComponent } from './core/impot/add-edit-impot/add-edit-impo
 import { ScheduleModule , RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 import { EmpCallenderComponent } from './core/emp-callender/emp-callender.component';
 import { ChargeService } from './shared/services/charge.service';
-import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService } from '@syncfusion/ej2-angular-schedule';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService,ICalendarImportService,ICalendarExportService,ExcelExportService } from '@syncfusion/ej2-angular-schedule';
 import { ImpotService } from './shared/services/impot.service';
+import { AbsenceComponent } from './core/absence/absence.component';
+
+
 
 
 
@@ -108,6 +111,7 @@ import { ImpotService } from './shared/services/impot.service';
     AddEditChargeComponent,
     AddEditImpotComponent,
     EmpCallenderComponent,
+    AbsenceComponent,
     
 
   ],
@@ -116,11 +120,11 @@ import { ImpotService } from './shared/services/impot.service';
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
     FormsModule,MatAutocompleteModule,MatToolbarModule,MatIconModule,MatButtonModule,MatDialogModule,
     MatInputModule,MatRadioModule,MatSelectModule,MatTableModule,MatPaginatorModule,MatSortModule,
-    MatSnackBarModule,MatFormFieldModule,ScheduleModule,RecurrenceEditorModule
+    MatSnackBarModule,MatFormFieldModule,ScheduleModule,RecurrenceEditorModule,
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,CurrencyService,CoreService,ChargeService,
-    ImpotService, DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService,
+    ImpotService, DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService,ExcelExportService ,ICalendarExportService,ICalendarImportService ,
     
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }

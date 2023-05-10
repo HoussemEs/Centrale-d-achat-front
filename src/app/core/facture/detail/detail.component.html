@@ -3,8 +3,7 @@
 <!--<input name="first" [(ngModel)]="first" id="first" ngModel>-->
 
 <p style="color:black"> Facture au nom de : <b>{{detailGeneral.nomPrenomClient}}</b><br>Fait le : <b>{{detailGeneral.dateCommmande}}</b>
-<br> Adresse de Livraison : <b> {{detailGeneral.adresseLivraison}} {{detailGeneral.telephoneReceptionLivraison}}</b><br>
-Prix total : <b>{{total}}</b></p>
+<br> Adresse de Livraison : <b> {{detailGeneral.adresseLivraison}} {{detailGeneral.telephoneReceptionLivraison}}</b></p>
 
 <div class="card w-75" *ngFor="let commande of listCommandes;">
   <div class="card-body">

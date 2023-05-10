@@ -21,9 +21,6 @@ constructor(private http: HttpClient) { }
       return this.http.get("http://localhost:8099/lignep/get-history/"+idFacture) .pipe(map((response: Response) => response))
     }
 
-    getOrderIdsList(username : any){
-      return this.http.get("http://localhost:8099/order/get-by-user/"+username) .pipe(map((response: Response) => response))
-    }
 
     getDetailCommande(idFact: any) {
       return this.http.get("http://localhost:8099/facture/detail/"+idFact) .pipe(map((response: Response) => response))

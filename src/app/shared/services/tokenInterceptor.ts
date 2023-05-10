@@ -4,7 +4,7 @@ import { Observable, catchError, retry, throwError, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HealthService } from './health.service';
-import { AuthService } from './authService';
+import { AuthService } from './auth.service';
 
 
 export interface Dataa{

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { HealthService } from 'src/app/shared/services/health.service';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Route, Router } from '@angular/router';
 import * as $ from 'jquery';
 import {

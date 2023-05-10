@@ -25,6 +25,10 @@ import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/ed
 import { EmplacementDetailComponent } from './core/emplacement/emplacement-detail/emplacement-detail.component';
 import { DepartementDetailComponent } from './core/departement/departement-detail/departement-detail.component';
 import { PerformanceComponent } from './core/employee/performance/performance.component';
+import { EmpCallenderComponent } from './core/emp-callender/emp-callender.component';
+import { ChargeComponent } from './core/charge/charge.component';
+import { ImpotComponent } from './core/impot/impot.component';
+import { CurrencyComponent } from './core/currency/currency.component';
 
 const routes: Routes = [
   {path:"health",component:HealthComponent},
@@ -37,6 +41,10 @@ const routes: Routes = [
   {path:"checkout",component:CheckoutComponent},
   {path:"support/:text",component:SupportComponent},
   {path:"test",component:TestComponent},
+  {path:"Empcalender",component:EmpCallenderComponent},
+  {path:"charge",component:ChargeComponent},
+  {path:"impot",component:ImpotComponent},
+  {path:"currency",component:CurrencyComponent},
   {path:"shop",component:ShopComponent},
   {path:"departement",component:DepartementComponent},
   {path:"employee",component:EmplacementComponent},

@@ -14,7 +14,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/services/tokenInterceptor';
-import { AuthService } from './shared/services/authService';
+import { AuthService } from './shared/services/auth.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-delivery.component';
 import { LivreurService } from './shared/services/livreur.service';
@@ -51,7 +51,7 @@ import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { HealthComponent } from './core/health/health.component';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { BackupsComponent } from './core/health/backups/backups.component';
 import { HealthService } from './shared/services/health.service';
 import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
@@ -65,7 +65,32 @@ import { EmplacementDetailComponent } from './core/emplacement/emplacement-detai
 import { PerformanceComponent } from './core/employee/performance/performance.component';
 import { PerformanceService } from './shared/services/performance.service';
 import { RatingModule } from '@syncfusion/ej2-angular-inputs';
+import { CurrencyComponent } from './core/currency/currency.component';
+import { ImpotComponent } from './core/impot/impot.component';
+import { ChargeComponent } from './core/charge/charge.component';
+import { AddEditChargeComponent } from './core/charge/add-edit-charge/add-edit-charge.component';
+import { AddEditCurrencyComponent } from './core/currency/add-edit-currency/add-edit-currency.component';
+import { AddEditImpotComponent } from './core/impot/add-edit-impot/add-edit-impot.component';
+import { EmpCallenderComponent } from './core/emp-callender/emp-callender.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ScheduleModule , RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ImpotService } from './shared/services/impot.service';
+import { CoreService } from './shared/services/core.service';
+import { ChargeService } from './shared/services/charge.service';
+import { CurrencyService } from './shared/services/currency.service';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService } from '@syncfusion/ej2-angular-schedule';
+import { AbsenceComponent } from './core/absence/absence.component';
+import { AbsenceService } from './shared/services/absence.service';
 
 
 @NgModule({
@@ -102,16 +127,29 @@ import { RatingModule } from '@syncfusion/ej2-angular-inputs';
     AddEmployeeComponent,
     DepartementDetailComponent,
     EmplacementDetailComponent,
-    PerformanceComponent
+    PerformanceComponent,
+    ImpotComponent,
+    ChargeComponent,
+    CurrencyComponent,
+    AddEditChargeComponent,
+    AddEditCurrencyComponent,
+    AddEditImpotComponent,
+    EmpCallenderComponent,
+    AbsenceComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule,RatingModule
+    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
+    MatAutocompleteModule,MatToolbarModule,MatIconModule,MatButtonModule,MatDialogModule,
+    MatInputModule,MatRadioModule,MatSelectModule,MatTableModule,MatPaginatorModule,MatSortModule,
+    MatSnackBarModule,MatFormFieldModule,ScheduleModule,RecurrenceEditorModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,
-    departementService,EmployeeService,PerformanceService,
+    departementService,EmployeeService,PerformanceService,CurrencyService,CoreService,ChargeService,AbsenceService,
+    ImpotService,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService,
+    TimelineViewsService, TimelineMonthService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

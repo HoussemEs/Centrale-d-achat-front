@@ -5,6 +5,8 @@
     overflow-x: hidden;
     padding-left: 5%!important;
     max-width: 100%;
+    height:85vh;
+    margin-top: 5%!important;
     /* height:100vh!important; */
     /*padding: 0!important;*/
 }
@@ -16,6 +18,11 @@
     max-width: 100%;
     /* height:100vh!important; */
     /*padding: 0!important;*/
+}
+
+::ng-deep * .body_reporting{
+  /* padding-top:1%!important; */
+  background-color: #000;
 }
   /* width */
   ::ng-deep *::-webkit-scrollbar {
@@ -30,14 +37,14 @@
 
   /* Handle */
   ::ng-deep *::-webkit-scrollbar-thumb {
-    background: rgb(249, 249, 249)!important;
+    background: #b30000!important;
     border-radius: 10px;
     height:50px!important;
   }
 
   /* Handle on hover */
   ::ng-deep *::-webkit-scrollbar-thumb:hover {
-    background: #b30000!important;
+    background: #d63838!important;
   }
 
   ::ng-deep * html{
@@ -60,9 +67,7 @@
 }
 .body{
     overflow-x: hidden;
-    height:85vh;
     position: absolute;
-    margin-top: 5%!important;
     /* margin-left:10%!important; */
     /* padding-bottom: 200px!important; */
     font-family: Exo, sans-serif!important;
@@ -136,8 +141,6 @@ input[type=text]{
   position: absolute;
   color: #fff;
 }
-
-
 
 
 

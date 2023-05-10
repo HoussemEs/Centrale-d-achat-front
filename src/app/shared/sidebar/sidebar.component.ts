@@ -5,11 +5,12 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css','../../assets/css/app.css']
 })
 export class SidebarComponent {
   private constructor() {  }
@@ -20,6 +21,7 @@ export class SidebarComponent {
   deliveryIcon = faTruckFast;
   paiementIcon = faMoneyBill;
   searchIcon = faSearch;
+  healthIcon = faHeartbeat;
   openNav() {
     if(document.getElementById("mySidenav").style.width == "60px"){
       document.getElementById("sidenav_btn").style.paddingLeft = "270px";

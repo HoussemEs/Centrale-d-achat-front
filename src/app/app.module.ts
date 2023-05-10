@@ -14,7 +14,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/services/tokenInterceptor';
-import { AuthService } from './shared/services/authService';
+import { AuthService } from './shared/services/AuthService';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-delivery.component';
 import { LivreurService } from './shared/services/livreur.service';
@@ -49,6 +49,17 @@ import { SharedService } from './shared/services/shared-service.service';
 import { EmplacementService } from './shared/services/emplacement.service';
 import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { HealthComponent } from './core/health/health.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BackupsComponent } from './core/health/backups/backups.component';
+import { HealthService } from './shared/services/health.service';
+import { AdminComponent } from './core/admin/admin.component';
+import { UserService } from './shared/services/user.service';
+import { LoginComponent } from './core/shop/login/login.component';
+import { RegisterComponent } from './core/shop/register/register.component';
+import { VerifyComponent } from './core/shop/login/verify/verify.component';
+import { BackComponent } from './core/back/back.component';
 
 
 
@@ -77,15 +88,22 @@ import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-
     HistoryComponent,
     HistoryDetailComponent,
     EmplacementComponent,
-    AddEmplacementComponent
+    AddEmplacementComponent,
+    HealthComponent,
+    BackupsComponent,
+    AdminComponent,
+    LoginComponent,
+    RegisterComponent,
+    VerifyComponent,
+    BackComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-    FormsModule,MatAutocompleteModule
+    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,UserService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

@@ -29,25 +29,25 @@
         <mat-form-field>
           <mat-label>Payment Method</mat-label>
           <mat-select formControlName="methodePaiement">
-            <mat-option *ngFor="let type of methodePaiement" [value]="type.value">
+            <mat-option *ngFor="let type of methodePaiement" [value]="type.value" (click)="check()">
               {{type.viewValue}}
             </mat-option>
           </mat-select>
         </mat-form-field><br>
-        <mat-form-field>
+        <mat-form-field id="cardn" class="dependent" >
           <input matInput placeholder="Card Number" formControlName="cardNumber" required>
         </mat-form-field><br>
-        <mat-form-field>
+        <mat-form-field id="carded" class="dependent" >
           <input matInput style="width:300px!important;" [matDatepicker]="picker" placeholder="Expiration Date" formControlName="expirationDate" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field><br>
-        <mat-form-field>
-          <input matInput placeholder="CVV" formControlName="cvv" required>
+        <mat-form-field id="cardc" class="dependent" >
+          <input matInput  placeholder="CVV" formControlName="cvv" required>
         </mat-form-field><br>
         <div>
           <button mat-button matStepperPrevious class="stepper_btn stepper_back_btn">Back</button>
-          <button mat-button matStepperNext class="stepper_btn">Next</button>
+          <button mat-button matStepperNext class="stepper_btn" (click)="fillPayement()">Next</button>
         </div>
       </form>
     </mat-step>
@@ -57,6 +57,7 @@
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="checkout()">Reset</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

@@ -48,7 +48,6 @@
             <td class="td number">prixTTC</td>
             <td class="td number">etatFacture</td>
             <td></td>
-            <td></td>
           </tr>
         </thead>
         <tbody>
@@ -61,7 +60,7 @@
             <td class="td number" *ngIf="facture.solde!=0">{{facture.solde}}</td>
             <td class="td number">{{facture.prixTTC}}</td>
             <td class="td number" *ngIf="facture.etatFacture==0"><span class="badge bg-success" >Facture payée</span></td>
-            <td class="td number" class="badge bg-warning" *ngIf="facture.etatFacture==-1">Annulée</td>
+            <td class="td number" *ngIf="facture.etatFacture==-1"><span class="badge bg-warning" >Annulée</span></td>
 
             <!-- <td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td> -->
             <!-- <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td> -->

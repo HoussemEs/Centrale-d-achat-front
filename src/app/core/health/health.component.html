@@ -18,7 +18,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <p *ngFor="let rep of listReplication">{{rep}}</p>
+        <div *ngFor="let rep of listReplication; let i = index">
+          <p>{{rep}}</p>
+          <button (click)="deleteLivreur(rep)">Delete</button>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-oc btn-secondary" data-bs-dismiss="modal">Close</button>

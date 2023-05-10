@@ -13,6 +13,7 @@ import {
   ApexMarkers,
   ApexFill
 } from "ng-apexcharts";
+import { LivreurService } from 'src/app/shared/services/livreur.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -58,7 +59,8 @@ export class HealthComponent {
   listReplicationSize: any;
   listLogs: any=[];
 
-  constructor(private healthService:HealthService,private spinner: NgxSpinnerService, private route:Router){  }
+  constructor(private healthService:HealthService,private spinner: NgxSpinnerService,
+        private route:Router, private livreurService:LivreurService){  }
 
   ngOnInit(){
     localStorage.setItem("monitoringMode","1");
@@ -99,6 +101,10 @@ export class HealthComponent {
     this.refreshChart();
 
     // window.location.reload();
+  }
+
+  deleteLivreur(id:any){
+    this.livreurService.deleteLivreur(id);
   }
 
   initAuthChart(){

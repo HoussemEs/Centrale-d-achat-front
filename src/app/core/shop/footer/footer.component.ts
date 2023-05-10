@@ -11,11 +11,7 @@ declare const jQuery: any;
 export class FooterComponent {
 
   ngOnInit(){
-
-    jQuery.noConflict();
-    jQuery(document).ready(function(){
-      jQuery('#customCarousel2').carousel();
-    });
+    //myMap();
     this.executeMethods();
   }
 
@@ -66,5 +62,19 @@ export class FooterComponent {
     }, 5000);
   }
 
+  // display: any;
+  // center: google.maps.LatLngLiteral = {
+  //     lat: 24,
+  //     lng: 12
+  // };
+  // zoom = 4;
+  // moveMap(event: google.maps.MapMouseEvent) {
+  //   if (event.latLng != null) this.center = (event.latLng.toJSON());
+  // }
+  // move(event: google.maps.MapMouseEvent) {
+  //   if (event.latLng != null) this.display = event.latLng.toJSON();
+  // }
 
 }
+
+

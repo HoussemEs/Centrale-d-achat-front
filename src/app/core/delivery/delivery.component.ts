@@ -23,6 +23,7 @@ export interface Livreur {
 
 
 export class DeliveryComponent {
+
   listDeliveries:any=[];
   detailedList: any=[];
   options=[];
@@ -45,6 +46,9 @@ export class DeliveryComponent {
   constructor(private deliveryService : DeliveryService, private livreurService:LivreurService, private _formBuilder: FormBuilder){}
 
   ngOnInit(){
+
+
+
     document.getElementById("delivery_element").classList.add('active');
     this.Form = this._formBuilder.group({
       nomLivreur: ['', this.myControl],
@@ -72,6 +76,8 @@ export class DeliveryComponent {
       });
     });
   }
+
+
 
   ngOnDestroy(){
     document.getElementById("delivery_element").classList.remove('active');

@@ -90,12 +90,15 @@
         <td class="td number">{{delivery.adresseLivraison}}</td>
         <td class="td number" style="color:red; font-weight: 700" *ngIf="delivery.etatLivraison==-1"><span  class="badge bg-danger">Canceled</span></td>
         <td class="td number" style="color:green; font-weight: 700" *ngIf="delivery.etatLivraison==0"><span  class="badge bg-success">Confirmed</span></td>
-        <td class="td number">
+        <td class="td number" style="display:flex">
           <div *ngIf="delivery.dateEnvoi==null && delivery.etatLivraison!=-1">
             <button  type="button" class="btn btn-success" id="modal_btn" (click)="displayModal(delivery.livraisonId)" style="font-size:11px!important;">Assigner Livreur</button>
           </div>
           <div *ngIf="delivery.dateLivraison==null && delivery.dateEnvoi!=null && delivery.etatLivraison!=-1">
             <button  type="button" class="btn btn-success" id="modal_btn" (click)="setShipped(delivery.livraisonId)" style="font-size:11px!important;">Changer Etat à livrée</button>
+          </div>
+          <div *ngIf="delivery.etatLivraison!=1">
+            <button  type="button" class="btn btn-danger" (click)="cancelDelivery(delivery.livraisonId)" style="font-size:11px!important;">Cancel Delivery</button>
           </div>
         </td>
 

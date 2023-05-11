@@ -1,4 +1,5 @@
 <div class="checkout_container">
+  <h1 style="padding-top:20px;">Vous pouvez toujours nous appelez sur +71 421 421</h1>
   <!-- <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button> -->
   <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
     <mat-step [stepControl]="firstFormGroup">
@@ -52,12 +53,44 @@
       </form>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
+      <ng-template matStepLabel>Last Check</ng-template>
+
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Nom d'Article</th>
+            <th scope="col">Quantite</th>
+            <th scope="col">Like Count</th>
+            <th scope="col">Prix Unitaire</th>
+            <th scope="col">Prix Total</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let commande of lplist; let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td>{{commande.categorie}}</td>
+            <td>{{commande.marque}}</td>
+            <td>{{commande.nomArticle}}</td>
+            <td>{{commande.quantite}}</td>
+            <td>{{commande.likeCount}}</td>
+            <td>{{commande.prixArticle.toFixed(2)}}</td>
+            <td>{{(commande.prixArticle*commande.quantite).toFixed(2)}}</td>
+            <td><img src="{{commande.image}}" height="60" width="90"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="total_price">Prix total : <b>{{total.toFixed(2)}}</b></p>
+
+
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button (click)="checkout()">Reset</button>
+        <button mat-button (click)="checkout()">Validate</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

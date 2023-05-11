@@ -23,7 +23,7 @@ import { PaiementComponent } from './core/paiement/paiement.component';
 import { MatStepperModule } from '@angular/material/stepper';
 // import { MatFormField } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CheckoutComponent } from './core/checkout/checkout.component';
+import { CheckoutComponent } from './core/shop/checkout/checkout.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -91,6 +91,21 @@ import { CurrencyService } from './shared/services/currency.service';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService } from '@syncfusion/ej2-angular-schedule';
 import { AbsenceComponent } from './core/absence/absence.component';
 import { AbsenceService } from './shared/services/absence.service';
+import { ProduitComponent } from './core/produit/produit.component';
+import { AddProduitComponent } from './core/produit/add-produit/add-produit.component';
+import { MarqueComponent } from './core/marque/marque.component';
+import { AddmarqueComponent } from './core/marque/addmarque/addmarque.component';
+import { CategorieComponent } from './core/categorie/categorie.component';
+import { AddCategorieComponent } from './core/categorie/add-categorie/add-categorie.component';
+import { EditproduitComponent } from './core/produit/editproduit/editproduit.component';
+import { UpdateCategorieComponent } from './core/categorie/update-categorie/update-categorie.component';
+import { UpdatemarqueComponent } from './core/marque/updatemarque/updatemarque.component';
+import { PrComponent } from './core/shop/pr/pr.component';
+import { PanierComponent } from './core/shop/panier/panier.component';
+import { PanierService } from './shared/services/panier.service';
+import { ProduitService } from './shared/services/produit.service';
+import { NgxPaginationModule, PaginationControlsComponent, PaginationControlsDirective } from 'ngx-pagination';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -135,21 +150,32 @@ import { AbsenceService } from './shared/services/absence.service';
     AddEditCurrencyComponent,
     AddEditImpotComponent,
     EmpCallenderComponent,
-    AbsenceComponent
+    AbsenceComponent,
+    ProduitComponent,
+    AddProduitComponent,
+    MarqueComponent,
+    AddmarqueComponent,
+    CategorieComponent,
+    AddCategorieComponent,
+    EditproduitComponent,
+    UpdateCategorieComponent,
+    UpdatemarqueComponent,
+    PrComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
     MatStepperModule, BrowserAnimationsModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
     FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule, MatInputModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,
-    MatAutocompleteModule,MatToolbarModule,MatIconModule,MatButtonModule,MatDialogModule,
+    MatAutocompleteModule,MatToolbarModule,MatIconModule,MatButtonModule,MatDialogModule,MatCheckboxModule,
     MatInputModule,MatRadioModule,MatSelectModule,MatTableModule,MatPaginatorModule,MatSortModule,
-    MatSnackBarModule,MatFormFieldModule,ScheduleModule,RecurrenceEditorModule
+    MatSnackBarModule,MatFormFieldModule,ScheduleModule,RecurrenceEditorModule,NgxPaginationModule
   ],
   providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
     PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,
     departementService,EmployeeService,PerformanceService,CurrencyService,CoreService,ChargeService,AbsenceService,
     ImpotService,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService,
-    TimelineViewsService, TimelineMonthService,
+    TimelineViewsService, TimelineMonthService,PanierService,ProduitService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

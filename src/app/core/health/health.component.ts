@@ -103,8 +103,14 @@ export class HealthComponent {
     // window.location.reload();
   }
 
+  ngOnDestroy(){
+    localStorage.setItem("monitoringMode",'0');
+  }
+
   deleteLivreur(id:any){
-    this.livreurService.deleteLivreur(id);
+    let indexofid = id.indexOf("Id=");
+    let idLivreur = id.slice(indexofid+3,id.indexOf(",",indexofid+3));
+    this.livreurService.deleteLivreur(idLivreur).subscribe(d=>console.log(d));
   }
 
   initAuthChart(){

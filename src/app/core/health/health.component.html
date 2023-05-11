@@ -5,7 +5,8 @@
     <button class="btn-oc" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Open Menu</button>
   </div>
   <div class="div2">
-    <img src="../../assets/images/ha.jpg" alt="" style="height: 100px;width: 380px;"></div>
+    <a routerLink="[/dashboard]"><img src="../../assets/images/ha.jpg" alt="" style="height: 100px;width: 380px;"></a>
+  </div>
   </div>
 <!-- Modal -->
 <div class="modal" id="exampleModal" tabindex="1" role="dialog" aria-bs-labelledby="exampleModalLabel" aria-bs-hidden="true">
@@ -20,7 +21,7 @@
       <div class="modal-body">
         <div *ngFor="let rep of listReplication; let i = index">
           <p>{{rep}}</p>
-          <button (click)="deleteLivreur(rep)">Delete</button>
+          <button class="btn-oc" *ngIf="i>0" (click)="deleteLivreur(rep)">Delete</button>
         </div>
       </div>
       <div class="modal-footer">

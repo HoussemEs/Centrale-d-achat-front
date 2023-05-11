@@ -20,7 +20,8 @@
     /* background-color: orangered; */
     margin: 0!important;
     overflow-x: hidden;
-    max-width: 100%;
+    min-width: 100%;
+    /* width: 100%!important; */
     background-color: white!important;
     /* height:100vh!important; */
     /*padding: 0!important;*/

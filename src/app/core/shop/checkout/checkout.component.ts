@@ -1,7 +1,9 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { now } from 'mongoose';
 import { PaiementService } from 'src/app/shared/services/paiement.service';
+import { PanierService } from 'src/app/shared/services/panier.service';
 import { SharedService } from 'src/app/shared/services/shared-service.service';
 
 
@@ -64,8 +66,12 @@ export class CheckoutComponent {
     {value: 3, viewValue: 'Paypal'},
     {value: 4, viewValue: 'D-17'}
   ];
+  lplist: any=[];
+  total=0;
 
-  constructor(private _formBuilder: FormBuilder, private paiementService: PaiementService, private sharedService:SharedService) { }
+  constructor(private _formBuilder: FormBuilder, private paiementService: PaiementService,
+    private sharedService:SharedService, private panierService:PanierService, private route:Router,
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -74,12 +80,21 @@ export class CheckoutComponent {
       numeroDestinataire: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      methodePaiement: ['', Validators.required],
-      cvv: [],
-      cardNumber:[],
-      expirationDate:[]
+      methodePaiement: ['', Validators.required]
     });
+
+    this.panierService.getCheckoutDetailsForUser(this.sharedService.getUsername()).subscribe(data =>{
+      this.lplist= data;
+      console.log(this.lplist);
+      this.lplist.forEach(ar => {
+          this.total = this.total + (ar.prixArticle * ar.quantite);
+      });
+
+    });
+
   }
+
+
   checkSelect(){
     this.livraison.adresseLivraison = this.firstFormGroup.value.adresseLivraison;
     this.livraison.numeroDestinataire = this.firstFormGroup.value.numeroDestinataire;
@@ -132,7 +147,8 @@ export class CheckoutComponent {
     this.checkoutDto.livraison=this.livraison;
     this.checkoutDto.paiement=this.paiement;
     this.paiementService.checkout(this.checkoutDto,this.sharedService.getUsername()).subscribe(data => {
-        console.log(data)
+        console.log(data);
+        this.route.navigate(['/shop/history/'+this.sharedService.getUsername()],{relativeTo:this.activatedRoute});
       },error =>
         console.log(error));
   }

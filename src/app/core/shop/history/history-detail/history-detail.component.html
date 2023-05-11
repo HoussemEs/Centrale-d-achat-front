@@ -2,7 +2,6 @@
   Au nom de : <b>{{detailGeneral.nomPrenomClient}}</b><br>Fait le : <b>{{detailGeneral.dateCommmande}}</b>
     <br> Adresse de Livraison : <b> {{detailGeneral.adresseLivraison}} {{detailGeneral.telephoneReceptionLivraison}}</b><br>
     </p>
-
 <!-- <div *ngFor="" -->
 <table class="table table-hover">
   <thead>
@@ -15,6 +14,7 @@
       <th scope="col">Like Count</th>
       <th scope="col">Prix Unitaire</th>
       <th scope="col">Prix Total</th>
+      <th scope="col">Image</th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,12 @@
       <td>{{commande.likeCount}}</td>
       <td>{{commande.prixArticle.toFixed(2)}}</td>
       <td>{{(commande.prixArticle*commande.quantite).toFixed(2)}}</td>
+      <td><img src="{{commande.image}}" height="60" width="90"></td>
     </tr>
   </tbody>
 </table>
-<p class="total_price">Prix total : <b>{{total.toFixed(2)}}</b></p>
+<p class="total_price">
+  Prix total : <b>{{total.toFixed(2)}}</b><br>
+  <button *ngIf="annule==0" class="btn btn-secondary" (click)="cancelDelivery()">Annuler ma commande</button>
+  <button *ngIf="annule!=0" class="btn btn-danger" disabled>Commande Annulée</button>
+</p>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
+import { CurrencyService } from 'src/app/shared/services/currency.service';
+import { PanierService } from 'src/app/shared/services/panier.service';
 declare const jQuery: any;
 
 @Component({
@@ -10,7 +12,18 @@ declare const jQuery: any;
 })
 export class HeaderComponent {
   username ="";
+  itemsincart=0;
+  panier: any=[];
+  clist :any=[];
+  currency: any;
+  exchangeRate: any;
+
+
+  constructor(private panierService:PanierService,private currencyService:CurrencyService){}
   ngOnInit(){
+    this.currencyService.getCurrencyList().subscribe(d=> this.clist=d)
+    this.username = localStorage.getItem("username");
+    this.panierService.getPanierByUser(this.username).subscribe(data=> {this.panier=data;this.itemsincart=this.panier.nbrArticle;});
     this.username=localStorage.getItem("username");
 
     jQuery.noConflict();
@@ -111,4 +124,15 @@ export class HeaderComponent {
     }, 5000);
   }
 
+
+  changeCurrency(){
+    this.currency=(<HTMLSelectElement>document.getElementById('curch')).selectedIndex;
+    this.clist.forEach(_curr => {
+      if(this.currency==_curr.currencyId){
+        this.exchangeRate=_curr.rate;
+        console.log(this.exchangeRate);
+        localStorage.setItem("exr",this.exchangeRate);
+      }
+    });
+  }
 }

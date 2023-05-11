@@ -136,6 +136,9 @@ export class DeliveryComponent {
     this.deliveryService.assignDelivery(this.livreur,this.livraisonId).subscribe(d=> {console.log(d)},error => console.log(error));
     document.getElementById("myModal11").style.visibility =" hidden";
   }
+  cancelDelivery(id:any){
+    this.deliveryService.cancelDelivery(id).subscribe(d=> console.log(d));
+  }
 
 
 }

@@ -5,6 +5,16 @@
   margin: 20px 0;
 }
 
+.card-body{
+  padding:0;
+}
+
+.product-box{
+  margin:auto;
+  width:80%;
+  padding-top:80px;
+}
+
 /* Product box styles */
 .box {
   width: 300px;
@@ -99,4 +109,27 @@
 
 .a_href:hover {
   color: #333;
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.quantite-input{
+  width:50px;
+  margin-left: 2px;
+  margin-right: 2px;
 }

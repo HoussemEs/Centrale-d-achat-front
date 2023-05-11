@@ -8,11 +8,16 @@
 <div class="card w-75" *ngFor="let commande of listCommandes;">
   <div class="card-body">
     <h5 class="card-title">{{commande.categorie}}</h5>
-    <p class="card-text">{{commande.nomArticle}} : {{commande.marque}}<br>
-      {{commande.quantite}} Piéce(s). <br>
-      {{commande.likeCount}} Personne(s) aiment ce produit.<br>
-      Prix HT par unité : {{commande.prixArticle.toFixed(2)}}<br>
-      </p>
+    <div class="card-text">
+      <div class="parent">
+        <div class="div1">
+          {{commande.nomArticle}} : {{commande.marque}}<br>
+          {{commande.quantite}} Piéce(s). <br>
+          {{commande.likeCount}} Personne(s) aiment ce produit.<br>
+          Prix HT par unité : {{commande.prixArticle.toFixed(2)}}<br>
+        </div>
+        <div class="div2"> <img src="{{commande.image}}" height="120" width="180"></div>
+        </div></div>
     <a href="#" class="btn btn-primary">Prix Total {{(commande.prixArticle*commande.quantite).toFixed(2)}}</a>
   </div>
 </div>

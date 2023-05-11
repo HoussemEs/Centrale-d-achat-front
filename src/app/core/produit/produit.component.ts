@@ -18,26 +18,27 @@ export class ProduitComponent {
   produit:any;
   produitToDelete:any;
   selectedProduit:any;
-  
-  
+
+
   plusIcon = faPlusCircle;
   p = 1;
 
   constructor(private produitService: ProduitService, private papa: Papa) {   }
 
   ngOnInit(){
-    this.produitService.getAllProducts().subscribe(data => this.listProduits = data);
+    this.produitService.getAllProducts().subscribe(data => {this.listProduits = data;console.log(data)});
+    console.log(this.listProduits);
     this.p = 1; // set current page to 1
-   
+
   }
 
-  
-  
 
 
 
 
-  
+
+
+
 
   downloadCSV() {
     const csvData = this.papa.unparse(this.listProduits, {
@@ -76,7 +77,7 @@ export class ProduitComponent {
     this.selectProduit = produit;
   }
 
-  
-  
+
+
 
 }

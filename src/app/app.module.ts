@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/services/tokenInterceptor';
 import { AuthService } from './shared/services/auth.service';
+// import { AuthService } from './shared/services/AuthService';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-delivery.component';
 import { LivreurService } from './shared/services/livreur.service';
@@ -51,9 +52,6 @@ import { EmplacementComponent } from './core/emplacement/emplacement.component';
 import { AddEmplacementComponent } from './core/emplacement/add-emplacement/add-emplacement.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { HealthComponent } from './core/health/health.component';
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { BackupsComponent } from './core/health/backups/backups.component';
-import { HealthService } from './shared/services/health.service';
 import { EditEmplacementComponent } from './core/emplacement/edit-emplacement/edit-emplacement.component';
 import { DepartementComponent } from './core/departement/departement.component';
 import { EmployeeComponent } from './core/employee/employee.component';
@@ -72,6 +70,18 @@ import { AddEditChargeComponent } from './core/charge/add-edit-charge/add-edit-c
 import { AddEditCurrencyComponent } from './core/currency/add-edit-currency/add-edit-currency.component';
 import { AddEditImpotComponent } from './core/impot/add-edit-impot/add-edit-impot.component';
 import { EmpCallenderComponent } from './core/emp-callender/emp-callender.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BackupsComponent } from './core/health/backups/backups.component';
+import { HealthService } from './shared/services/health.service';
+import { AdminComponent } from './core/admin/admin.component';
+import { UserService } from './shared/services/user.service';
+import { LoginComponent } from './core/shop/login/login.component';
+import { RegisterComponent } from './core/shop/register/register.component';
+import { VerifyComponent } from './core/shop/login/verify/verify.component';
+import { BackComponent } from './core/back/back.component';
+import { ResetComponent } from './core/shop/login/reset/reset.component';
+import { ResetMailComponent } from './core/shop/login/reset/reset-mail/reset-mail.component';
+import { ResetSMSComponent } from './core/shop/login/reset/reset-sms/reset-sms.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
@@ -162,6 +172,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     UpdatemarqueComponent,
     PrComponent,
     PanierComponent
+    AdminComponent,
+    LoginComponent,
+    RegisterComponent,
+    VerifyComponent,
+    BackComponent,
+    ResetComponent,
+    ResetMailComponent,
+    ResetSMSComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,
@@ -176,6 +194,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     departementService,EmployeeService,PerformanceService,CurrencyService,CoreService,ChargeService,AbsenceService,
     ImpotService,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService,
     TimelineViewsService, TimelineMonthService,PanierService,ProduitService,
+    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule
+  ],
+  providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
+    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,UserService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

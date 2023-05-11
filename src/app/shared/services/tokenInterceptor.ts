@@ -23,6 +23,9 @@ export class TokenInterceptor implements HttpInterceptor {
     private healthService:HealthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (request.headers.get('No-Auth') === 'True') {
+      return next.handle(request.clone());
+    }
     // const exp = this.jwtHelper.decodeToken(this.auth.getToken()).exp;
     // const currentTimestamp= Math.floor(Date.now() / 1000);
     request = request.clone({
@@ -32,6 +35,7 @@ export class TokenInterceptor implements HttpInterceptor {
     });
 
     this.responseclient = next.handle(request).pipe(
+
       retry(1),
       catchError((error: HttpErrorResponse) => {
         this.requestPath=error.url;

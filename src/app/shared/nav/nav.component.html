@@ -10,6 +10,13 @@
 
     <div class="help_txt">About Us</div>
 
+    <div class="help_txt">
+        <button *ngIf="!isLoggedIn()" type="button" class="btn " routerLink="/login">Login</button>
+    </div>
+    <div class="help_txt">
+      <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
+
     <div class="settings_icon"><fa-icon [icon]=settingsIcon></fa-icon></div>
   </div>
 </div> -->

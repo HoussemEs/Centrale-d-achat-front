@@ -24,12 +24,12 @@ h1{
   color: #000;
   font-size: 24px;
 }
-a{
+/* a{
   text-decoration: none;
 }
 a:visited{
   text-decoration: none;
-}
+} */
 .btn {
   text-align: center;
 }
@@ -68,3 +68,7 @@ a:visited{
   background-color: #d33f2f;
 }
 
+.btn-success{
+
+  background-color: #198754!important;
+}

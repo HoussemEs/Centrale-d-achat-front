@@ -42,9 +42,9 @@
         </a>
       </li>
 
-      <li class="sidebar-item">
-        <a class="sidebar-link" href="pages-blank.html">
-          <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
+      <li class="sidebar-item" id="produit_element">
+        <a class="sidebar-link" [routerLink]="['produits']">
+          <fa-icon [icon]=produitIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Produit</span>
         </a>
       </li>
 
@@ -54,7 +54,7 @@
 
       <li class="sidebar-item" id="emplacement_element">
         <a class="sidebar-link" [routerLink]="['emplacement']">
-          <fa-icon [icon]=empIcon style="padding-right:15px;"></fa-icon><span class="align-middle" style="">Emplacements et Employees</span>
+          <fa-icon [icon]=empIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Emplacements</span>
         </a>
       </li>
 
@@ -64,14 +64,14 @@
         </a>
       </li>
 
-      <li class="sidebar-item" id="employee_element">
-        <a class="sidebar-link" [routerLink]="['employee']">
-          <fa-icon [icon]=employeeIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Employees</span>
+      <li class="sidebar-item" id="currency_element">
+        <a class="sidebar-link" [routerLink]="['currency']">
+          <fa-icon [icon]=currencyIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Currencies</span>
         </a>
       </li>
 
-      <li class="sidebar-item">
-        <a class="sidebar-link" href="ui-typography.html">
+      <li class="sidebar-item" id="produit_element">
+        <a class="sidebar-link" [routerLink]="['produits']">
           <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
         </a>
       </li>

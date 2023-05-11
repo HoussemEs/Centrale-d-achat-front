@@ -1,6 +1,9 @@
 <h1>List Produit</h1>
-<a [routerLink]="['/produit/addproduit']"><fa-icon [icon]=plusIcon style="padding-left:100px; font-size: 36px;"></fa-icon><div class="sidenav_text" id="sidenav_text4"></div></a>
-
+<div style="display:flex">
+  <a [routerLink]="['/produit/addproduit']"><fa-icon [icon]=plusIcon style="padding-left:100px; font-size: 36px;"></fa-icon><div class="sidenav_text" id="sidenav_text4"></div></a>
+  <a [routerLink]="['/categories']"><fa-icon [icon]=mixedIcon style="padding-left:100px; font-size: 36px;"></fa-icon>Categorie<div class="sidenav_text" id="sidenav_text4"></div></a>
+  <a [routerLink]="['/marques']"><fa-icon [icon]=mixedIcon style="padding-left:100px; font-size: 36px;"></fa-icon>Marque<div class="sidenav_text" id="sidenav_text4"></div></a>
+</div>
 <table border='1' class="table">
   <tr class="tr">
     <td class="td number">Id</td>
@@ -25,7 +28,7 @@
     <td class="td number">{{produit.prixHT}}</td>
     <td class="td number">
       <img src="{{ produit.imagee }}" style="width: 50px; height: 50px;"></td>
-    <td class="td number"><button class="update-btn"  [routerLink]="['/produits/update/', produit.articleId]">Update</button></td>
+    <td class=" number"><button class="btn btn-success"  [routerLink]="['/produits/update/', produit.articleId]">Update</button></td>
 
     <td class="td number"><a (click)="deleteProduit(produit)" class="delete-btn">Delete</a></td>
 

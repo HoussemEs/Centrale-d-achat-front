@@ -6,15 +6,15 @@
   <tr class="tr">
     <td class="td number">Id</td>
     <td class="td number">Nom</td>
-    <td class="td btn">Actions</td>
+    <td class="td number">Actions</td>
   </tr>
   <tr *ngFor="let marque of listMarque; let ind= index"  class="tr" (click)="selectedMarque = marque">
     <td class="td number">{{marque.marqueId}}</td>
     <td class="td number">{{marque.nomMarque}}</td>
-    <td class="td btn"><button class="update-btn"  [routerLink]="['/marques/update-marque', marque.marqueId]">Update</button></td>
-    <td class="td btn"><a (click)="deleteMarque(marque)" class="delete-btn">Delete</a></td>
+    <td class="td number"><button class="update-btn"  [routerLink]="['/marques/update-marque', marque.marqueId]">Update</button>
+      <a (click)="deleteMarque(marque)" class="delete-btn">Delete</a></td>
   </tr>
-  
+
 </table>
 
 

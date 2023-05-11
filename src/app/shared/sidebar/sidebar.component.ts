@@ -10,6 +10,8 @@ import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 import { faLocation } from '@fortawesome/free-solid-svg-icons';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -19,6 +21,8 @@ export class SidebarComponent {
   private constructor() {  }
   status = 1;
   employeeIcon = faUserAlt;
+  currencyIcon = faDollarSign;
+  produitIcon = faBoxOpen;
   empIcon = faLocation;
   depIcon = faBuilding;
   dashIcon = faDashboard;

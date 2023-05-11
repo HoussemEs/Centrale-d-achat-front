@@ -6,6 +6,7 @@ import { Produit } from 'src/app/shared/models/produit';
 import { saveAs } from 'file-saver';
 import { Papa } from 'ngx-papaparse';
 
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { Papa } from 'ngx-papaparse';
   styleUrls: ['./produit.component.css']
 })
 export class ProduitComponent {
+  mixedIcon = faEdit;
   listProduits:any=[];
   produit:any;
   produitToDelete:any;
@@ -26,6 +28,7 @@ export class ProduitComponent {
   constructor(private produitService: ProduitService, private papa: Papa) {   }
 
   ngOnInit(){
+    document.getElementById("produit_element").classList.add('active');
     this.produitService.getAllProducts().subscribe(data => {this.listProduits = data;console.log(data)});
     console.log(this.listProduits);
     this.p = 1; // set current page to 1
@@ -33,6 +36,10 @@ export class ProduitComponent {
   }
 
 
+
+  ngOnDestroy(){
+    document.getElementById("produit_element").classList.remove('active');
+  }
 
 
 

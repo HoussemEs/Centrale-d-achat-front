@@ -29,12 +29,12 @@
         <td>{{commande.nomArticle}}</td>
         <td>{{commande.quantite}}</td>
         <td>{{commande.likeCount}}</td>
-        <td>{{commande.prixArticle.toFixed(2)}}</td>
-        <td>{{(commande.prixArticle*commande.quantite).toFixed(2)}}</td>
+        <td>{{commande.prixArticle.toFixed(2)}}{{symbol}}</td>
+        <td>{{(commande.prixArticle*commande.quantite).toFixed(2)}}{{symbol}}</td>
         <td><img src="{{commande.image}}" height="60" width="90"></td>
       </tr>
     </tbody>
   </table>
 </div>
-  <p style="padding-left:70%;" class="total_price">Prix total : <b>{{total.toFixed(2)}}</b></p>
+  <p style="padding-left:70%;" class="total_price">Prix total : <b>{{total.toFixed(2)}}{{symbol}}</b></p>
 <button class="val-btn btn btn-primary" routerLink="/shop/checkout">Validate Order</button>

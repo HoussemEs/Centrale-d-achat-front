@@ -72,8 +72,8 @@
             </ul>
             <div class="user_optio_box">
 
-              <select id="curch" formControlName="country" (change)="changeCurrency()">
-                <option [ngValue]="0" defaultSelected>Currency</option>
+              <select id="curch" formControlName="country" (click)="changeCurrency()">
+                <option [ngValue]="0" disabled>Currency</option>
                 <option *ngFor="let c of clist" [ngValue]="c.id" >{{c.name}}</option>
               </select>
 

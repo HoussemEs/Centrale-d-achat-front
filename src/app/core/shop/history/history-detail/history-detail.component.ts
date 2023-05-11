@@ -16,26 +16,32 @@ export class HistoryDetailComponent {
   detailGeneral: any;
   annule:0;
   all: any;
+  listCommandesN: any;
+  rate: any;
+  symbol: any;
   constructor(private ar:ActivatedRoute, private factureService: FactureServiceService, private deliveryService:DeliveryService){
 
   }
 
   ngOnInit(){
+    let i=0;
+    this.symbol=localStorage.getItem("exs");
+    this.rate=localStorage.getItem("exr");
     this.ar.params.subscribe(s=> this.idCommande = s["idcommande"])
     this.factureService.getFactureByCommande(this.idCommande).subscribe(data =>{
       this.all= data;
       this.idFact = this.all.factureId;
       this.factureService.getDetailCommande(this.idFact).subscribe(df=> {
         this.detailGeneral = df;
-        // console.log(this.detailGeneral);
         this.annule = this.detailGeneral.etatFacture;
-        // console.log("annule = "+this.annule);
       });
       this.factureService.getDetailFacture(this.idFact).subscribe(d=> {
-        this.listCommandes = d;
-        // console.log(this.listCommandes);
-        // determine the total price
-        this.listCommandes.forEach(ar => {
+        this.listCommandesN = d;
+        this.listCommandesN.forEach(ar => {
+
+        ar.prixArticle = ar.prixArticle * this.rate;
+        this.listCommandes[i]=ar;
+        i=i+1;
           this.total = this.total + (ar.prixArticle * ar.quantite);
         });
       });

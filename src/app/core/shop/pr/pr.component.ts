@@ -20,6 +20,7 @@ export interface LpDTO{
   styleUrls: ['./pr.component.css']
 })
 export class PrComponent {
+  listProduitsN:any=[];
   listProduits:any=[];
   product: Product={
     imagee:'',
@@ -36,10 +37,23 @@ export class PrComponent {
   quantite:any=0;
   username: string='';
   panier: any=[];
+  rate: any;
+  symbol: any;
   constructor(private produitService: ProduitService, private panierService : PanierService) {   }
 
   ngOnInit(){
-    this.produitService.getAllProducts().subscribe(data => this.listProduits = data);
+    this.symbol=localStorage.getItem("exs");
+    this.rate=localStorage.getItem("exr");
+    console.log(this.rate);
+    let i=0;
+    this.produitService.getAllProducts().subscribe(data => {
+      this.listProduitsN = data;
+      this.listProduitsN.forEach(element => {
+        element.prixHT=element.prixHT*this.rate;
+        this.listProduits[i]=element;
+        i=i+1;
+      });
+    });
  console.log(this.listProduits)  ;
 
 }

@@ -11,7 +11,7 @@ import { currency } from 'src/app/core/currency/currency';
   providedIn: 'root'
 })
 export class CurrencyService {
-  
+
   currencyId=0;
   currency:currency;
   any:any;
@@ -19,8 +19,8 @@ export class CurrencyService {
     this.currencyId=currencyId;
     this.currency=currency;
   }
-  
-  
+
+
   getData() {
     this.any.currencyId=this.currencyId;
     this.any.currency=this.currency;
@@ -40,5 +40,9 @@ export class CurrencyService {
   }
   updateCurrency(currencyId: any, updatedCurrency: currency) {
     return this.http.put(`http://localhost:8099/Currency/Update-Currency/${currencyId}`, updatedCurrency);
+  }
+  getExchangeRate(from:any,to:any){
+    return this.http.get("http://localhost:8099/Currency/ExchangeRate/"+from+"/"+to+"?Amount="+1) .pipe(map((response: Response) => response))
+
   }
 }

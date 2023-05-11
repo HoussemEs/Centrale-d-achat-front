@@ -35,6 +35,9 @@ export class AppComponent {
     if(!localStorage.getItem("exr")){
       localStorage.setItem("exr","1");
     }
+    if(!localStorage.getItem("exs")){
+      localStorage.setItem("exs","TND");
+    }
     if(!localStorage.getItem("monitoringMode")){
       localStorage.setItem("monitoringMode","0");
     }

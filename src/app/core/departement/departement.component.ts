@@ -21,8 +21,14 @@ export class DepartementComponent {
   constructor(private dpService : departementService, private route:Router, private activatedRoute:ActivatedRoute){}
 
   ngOnInit(){
+    document.getElementById("dept_element").classList.add('active');
     this.getList();
   }
+
+  ngOnDestroy(){
+    document.getElementById("dept_element").classList.remove('active');
+  }
+
   getList(){
     this.dpService.getDepartementList().subscribe(d=> {this.listDepartement = d;})
   }

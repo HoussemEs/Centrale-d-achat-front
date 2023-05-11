@@ -25,14 +25,14 @@
       <td>{{commande.nomArticle}}</td>
       <td>{{commande.quantite}}</td>
       <td>{{commande.likeCount}}</td>
-      <td>{{commande.prixArticle.toFixed(2)}}</td>
-      <td>{{(commande.prixArticle*commande.quantite).toFixed(2)}}</td>
+      <td>{{commande.prixArticle.toFixed(2)}}{{symbol}}</td>
+      <td>{{(commande.prixArticle*commande.quantite).toFixed(2)}}{{symbol}}</td>
       <td><img src="{{commande.image}}" height="60" width="90"></td>
     </tr>
   </tbody>
 </table>
 <p class="total_price">
-  Prix total : <b>{{total.toFixed(2)}}</b><br>
+  Prix total : <b>{{total.toFixed(2)}}{{symbol}}</b><br>
   <button *ngIf="annule==0" class="btn btn-secondary" (click)="cancelDelivery()">Annuler ma commande</button>
   <button *ngIf="annule!=0" class="btn btn-danger" disabled>Commande Annulée</button>
 </p>

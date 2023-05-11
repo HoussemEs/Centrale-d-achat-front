@@ -16,7 +16,12 @@ export class EmplacementComponent implements OnInit {
   constructor(private emplacementService: EmplacementService,private route:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    document.getElementById("emplacement_element").classList.add('active');
     this.getAllEmplacements();
+  }
+
+  ngOnDestroy(){
+    document.getElementById("emplacement_element").classList.remove('active');
   }
 
   getAllEmplacements(){

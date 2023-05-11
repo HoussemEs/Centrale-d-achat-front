@@ -79,7 +79,7 @@ export class DashboardComponent {
 
   pieChart(){
     this.pieChartOptions = {
-      series: [44, 55, 13, 43, 22,44, 10, 7, 10, 7,10, 3],
+      series: [404, 550, 130, 430, 220,984, 100, 70, 100, 70,100, 120],
       chart: {
         type: "donut"
       },

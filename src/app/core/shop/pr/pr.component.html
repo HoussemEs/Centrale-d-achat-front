@@ -14,7 +14,7 @@
                   {{produit.nomArticle }}
                 </div>
                 <h5>
-                  <span>DT</span> {{produit.prixHT}}
+                  <span>{{symbol}}</span> {{produit.prixHT.toFixed(2)}}
                 </h5>
               </div>
               <div class="like">
@@ -65,7 +65,7 @@
           </div>
           <div class="div2">
             <b>{{product.nomArticle}}</b><br>
-            {{product.prixHT}} DT<br><br><br><br><br>
+            {{product.prixHT.toFixed(2)}} {{symbol}}<br><br><br><br><br>
             <button (click)="decrease()">-</button>
               <input type="number" id="quantite" class="quantite-input" [(ngModel)]="quantite" name="quantite">
             <button (click)="increase()">+</button>

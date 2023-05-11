@@ -129,9 +129,12 @@ export class HeaderComponent {
     this.currency=(<HTMLSelectElement>document.getElementById('curch')).selectedIndex;
     this.clist.forEach(_curr => {
       if(this.currency==_curr.currencyId){
-        this.exchangeRate=_curr.rate;
-        console.log(this.exchangeRate);
-        localStorage.setItem("exr",this.exchangeRate);
+        this.currencyService.getExchangeRate('TND',_curr.symbol).subscribe(d=>{this.exchangeRate=d;
+
+          localStorage.setItem("exr",this.exchangeRate);
+          localStorage.setItem("exs",_curr.symbol);
+          console.log(this.exchangeRate);
+        });
       }
     });
   }

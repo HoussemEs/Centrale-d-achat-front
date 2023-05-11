@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/AuthService';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -19,17 +21,19 @@ export class RegisterComponent {
     userPhone : ""
   };
 
-  constructor(private userService:UserService){
+  constructor(private userService:UserService, private router:Router, private authService: AuthService) {
+    if (this.authService.isAuthenticated())
+    this.router.navigate(['/unauthorized']);
   }
   onSubmit() {
     this.userService.addUser(this.user).subscribe(
       (data) => {
         console.log(data);
-        // handle successful user creation here
+        this.router.navigate(['/login']);
       },
       (error) => {
         console.log(error);
-        // handle error here
+        alert('Something went wrong, Please try again.');
       }
     );
   }

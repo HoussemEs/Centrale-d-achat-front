@@ -60,6 +60,9 @@ import { LoginComponent } from './core/shop/login/login.component';
 import { RegisterComponent } from './core/shop/register/register.component';
 import { VerifyComponent } from './core/shop/login/verify/verify.component';
 import { BackComponent } from './core/back/back.component';
+import { ResetComponent } from './core/shop/login/reset/reset.component';
+import { ResetMailComponent } from './core/shop/login/reset/reset-mail/reset-mail.component';
+import { ResetSMSComponent } from './core/shop/login/reset/reset-sms/reset-sms.component';
 
 
 
@@ -95,7 +98,10 @@ import { BackComponent } from './core/back/back.component';
     LoginComponent,
     RegisterComponent,
     VerifyComponent,
-    BackComponent
+    BackComponent,
+    ResetComponent,
+    ResetMailComponent,
+    ResetSMSComponent
   ],
   imports: [
     BrowserModule,CommonModule,HttpClientModule,AppRoutingModule,FormsModule, FontAwesomeModule, ReactiveFormsModule,

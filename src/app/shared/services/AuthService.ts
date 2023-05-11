@@ -43,13 +43,33 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('roles'));
   }
 
-
   //Set Token in local storage
 
   public setToken(jwtToken: string) {
     localStorage.setItem('token', jwtToken);
   }
 
+    //Set Email in local storage
+
+public setEmail(mail : string){
+  localStorage.setItem('email', mail);
+}
+
+    //get Email from local storage
+
+public getEmail(): string{
+  return localStorage.getItem('email');
+}
+
+public setPhone(phone : string){
+  localStorage.setItem('phone', phone);
+}
+
+    //get Email from local storage
+
+public getPhone(): string{
+  return localStorage.getItem('phone');
+}
 
   //Clear local storage for logout
 

@@ -23,6 +23,9 @@ import { RegisterComponent } from './core/shop/register/register.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { VerifyComponent } from './core/shop/login/verify/verify.component';
 import { BackComponent } from './core/back/back.component';
+import { ResetComponent } from './core/shop/login/reset/reset.component';
+import { ResetSMSComponent } from './core/shop/login/reset/reset-sms/reset-sms.component';
+import { ResetMailComponent } from './core/shop/login/reset/reset-mail/reset-mail.component';
 
 const routes: Routes = [
 
@@ -41,18 +44,19 @@ const routes: Routes = [
     {path:"test",component:TestComponent},
     {path:"dashboard",component:DashboardComponent},
     {path:"facture/detail/:factid",component:DetailComponent},
-
+    
   ]},
-  {
-    path:'login',
-    component:LoginComponent  },
-  {
-    path:'register',
-    component:RegisterComponent,
-  },
+  {path:'login',component:LoginComponent},
+
+  {path:'register',component:RegisterComponent},
+
   {path:"unauthorized",component:ErrorComponent},
 
-  {path:"verify/:activateToken",component:VerifyComponent},
+  {path:"verify/:activateToken",component:VerifyComponent },
+
+  {path:"reset",component:ResetComponent},
+  {path:"resetSMS",component:ResetSMSComponent},
+  {path:"resetMail",component:ResetMailComponent},
 
 
 

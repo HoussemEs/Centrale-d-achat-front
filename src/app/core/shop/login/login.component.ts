@@ -15,7 +15,11 @@ export class LoginComponent {
    userPassword:any;
 
   constructor(private userService:UserService,private router:Router, private authService:AuthService)
-  {}
+  {
+    if (this.authService.isAuthenticated())
+    this.router.navigate(['/unauthorized']);
+
+  }
 
   login() {
     this.userService.authenticate(this.userName, this.userPassword).subscribe(

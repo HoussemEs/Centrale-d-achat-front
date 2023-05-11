@@ -35,6 +35,6 @@ export class NavComponent {
     }
     public logout() {
       this.userAuth.clear();
-      this.router.navigate(['/shop/home']);
+      this.router.navigate(['/login']);
     }
 }

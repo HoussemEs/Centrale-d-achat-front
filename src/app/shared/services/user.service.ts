@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './AuthService';
+import { throwError } from 'rxjs';
+import { error } from 'jquery';
 
 
 export interface Role {
@@ -18,6 +20,16 @@ export interface jwtresponse{
   jwtToken:string
 }
 
+export interface data{
+email : email,
+phone : phone
+}
+export interface email{
+  email : string,
+  }
+  export interface phone{
+    phone : string,
+    }
 @Injectable({
   providedIn: 'root'
 })
@@ -40,6 +52,30 @@ export class UserService {
     {
       user: this.user,
       jwtToken:""
+    };
+    email : email = {
+      email : ""
+    };
+
+    phone : phone = {
+      phone : ""
+    };
+    data : data = 
+    {
+      email:this.email,
+      phone: this.phone
+    };
+    resetMail : any = 
+    {
+      email:"",
+      code: "",
+      password: ""
+    };
+    resetSMS : any = 
+    {
+      phone:"",
+      code: "",
+      password: ""
     };
 
 
@@ -122,10 +158,45 @@ export class UserService {
 //Verify user by email
 
 verifyAccount(activateToken){
-  return this.httpClient.put(`${this.baseUrl}/activate/${activateToken}`,null,{headers : this.requestHeader,});
+  return this.httpClient.put(`${this.baseUrl}/activate/${activateToken}`,null,{headers : this.requestHeader,observe: 'response'});
 }
 
+//Check pwd
 
+checkEmail(resetOption : string, data : data){
+  this.data.email.email = data.email.email;
+  this.data.phone.phone = data.phone.phone;
+  if (resetOption === "email")
+  {
+      return this.httpClient.post(`${this.baseUrl}/checkEmail`,data.email,{headers : this.requestHeader,observe: 'response'})
+  }
+  else if (resetOption === "sms")
+  {
+    return this.httpClient.post(`${this.baseUrl}/checkSMS`,data.phone,{headers : this.requestHeader,observe: 'response'})
+  }
+  else return null;
+}
+
+//Reset pwd
+
+ResetPwdWithMail(code : string, password : string){
+  this.resetMail.email = this.authService.getEmail();
+  this.resetMail.code = code;
+  this.resetMail.password = password;
+  console.log(this.resetMail);
+  return this.httpClient.post(`${this.baseUrl}/resetPassword`,this.resetMail,{headers : this.requestHeader,observe: 'response'})
+
+
+}
+
+ResetPwdWithSMS(code : string, password : string){
+  this.resetSMS.phone = this.authService.getPhone();
+  this.resetSMS.code = code;
+  this.resetSMS.password = password;
+  return this.httpClient.post(`${this.baseUrl}/resetPasswordSMS`,this.resetSMS,{headers : this.requestHeader,observe: 'response'})
+
+
+}
 
 
 }

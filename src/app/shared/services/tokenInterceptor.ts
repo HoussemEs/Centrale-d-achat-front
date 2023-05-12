@@ -4,7 +4,7 @@ import { Observable, catchError, retry, throwError, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HealthService } from './health.service';
-import { AuthService } from './auth.service';
+import { AuthService } from './AuthService';
 
 
 export interface Dataa{
@@ -44,6 +44,8 @@ export class TokenInterceptor implements HttpInterceptor {
         }
 
         if (error.status === 401) {
+             this.auth.clear();
+             this.router.navigate(["/login"]);
              this.healthService.addError(1,this.requestPath).subscribe(d=> {console.log(d)},error => console.log(error));
             // this.healthService.getErrors(1).subscribe(d => console.log(d) );
         } else if (error.status === 500) {

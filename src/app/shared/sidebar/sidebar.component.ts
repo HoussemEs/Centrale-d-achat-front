@@ -12,6 +12,7 @@ import { faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -20,6 +21,7 @@ import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 export class SidebarComponent {
   private constructor() {  }
   status = 1;
+  iconUser = faUserPlus;
   employeeIcon = faUserAlt;
   currencyIcon = faDollarSign;
   produitIcon = faBoxOpen;

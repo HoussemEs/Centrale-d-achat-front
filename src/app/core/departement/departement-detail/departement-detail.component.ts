@@ -30,7 +30,7 @@ export class DepartementDetailComponent {
 
   ngOnInit(){
     this.modalChoice=0;
-    this.employeeService.getUserList().subscribe(d=> {this.usersList = d})
+    this.employeeService.getUserList().subscribe(d=> {this.usersList = d;console.log(this.usersList)})
     this.activatedRoute.params.subscribe(s => { this.idEmpDep=s['idEmpDep'] });
     this.employeeService.getEmployeeByED(this.idEmpDep).subscribe(d=> {this.listEmployees = d;console.log(this.listEmployees);});
   }

@@ -14,8 +14,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/services/tokenInterceptor';
-import { AuthService } from './shared/services/auth.service';
-// import { AuthService } from './shared/services/AuthService';
+// import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './shared/services/AuthService';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { TrackDeliveryComponent } from './core/tracking/track-delivery/track-delivery.component';
 import { LivreurService } from './shared/services/livreur.service';
@@ -171,7 +171,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     UpdateCategorieComponent,
     UpdatemarqueComponent,
     PrComponent,
-    PanierComponent
+    PanierComponent,
     AdminComponent,
     LoginComponent,
     RegisterComponent,
@@ -193,11 +193,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,
     departementService,EmployeeService,PerformanceService,CurrencyService,CoreService,ChargeService,AbsenceService,
     ImpotService,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService,
-    TimelineViewsService, TimelineMonthService,PanierService,ProduitService,
-    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule
-  ],
-  providers: [FactureServiceService,AuthService,JwtHelperService,LivreurService,
-    PaiementService,MatDatepickerModule,DeliveryService,SharedService,EmplacementService,HealthService,UserService,
+    TimelineViewsService, TimelineMonthService,PanierService,ProduitService,UserService,
+    FormsModule,MatAutocompleteModule,NgApexchartsModule,NgxSpinnerModule,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],

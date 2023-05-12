@@ -18,8 +18,11 @@ export class AppComponent {
   userType="";
   monitoringMode=0;
   ngOnInit() {
+    if(!(localStorage.getItem("monitoringMode"))){
+      localStorage.setItem("monitoringMode","0");
+    }
     this.monitoringMode= parseInt(localStorage.getItem("monitoringMode"));
-    this.userType= localStorage.getItem("user").toLowerCase();
+    this.userType= localStorage.getItem("user");
     if(this.userType=='admin'){
       // this.router.navigate(['/dashboard'])
     }else if(this.userType=='user'){

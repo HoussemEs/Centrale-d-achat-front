@@ -42,3 +42,9 @@
   .sidebar-toggle{
     margin-left : 20%;
   }
+
+
+  .dropdown-menu{
+    position: fixed!important;
+    right:2%;
+  }

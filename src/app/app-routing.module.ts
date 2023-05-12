@@ -40,56 +40,78 @@ import { UpdateCategorieComponent } from './core/categorie/update-categorie/upda
 import { CategorieComponent } from './core/categorie/categorie.component';
 import { EditproduitComponent } from './core/produit/editproduit/editproduit.component';
 import { PanierComponent } from './core/shop/panier/panier.component';
+import { BackComponent } from './core/back/back.component';
+import { AuthGuard } from './shared/services/auth.guard';
+import { AdminComponent } from './core/admin/admin.component';
+import { LoginComponent } from './core/shop/login/login.component';
+import { RegisterComponent } from './core/shop/register/register.component';
+import { VerifyComponent } from './core/shop/login/verify/verify.component';
+import { ResetComponent } from './core/shop/login/reset/reset.component';
+import { ResetSMSComponent } from './core/shop/login/reset/reset-sms/reset-sms.component';
+import { ResetMailComponent } from './core/shop/login/reset/reset-mail/reset-mail.component';
 
 const routes: Routes = [
-  {path:"health",component:HealthComponent},
-  {path:"health/backups",component:BackupsComponent},
-  {path:"facture",component:FactureComponent},
-  {path:"paiement",component:PaiementComponent},
-  {path:"delivery",component:DeliveryComponent},
-  {path:"paiement",component:PaiementComponent},
-  {path:"tracking",component:TrackDeliveryComponent},
-  {path:"checkout",component:CheckoutComponent},
-  {path:"support/:text",component:SupportComponent},
-  {path:"test",component:TestComponent},
-  {path:"Empcalender",component:EmpCallenderComponent},
-  {path:"charge",component:ChargeComponent},
-  {path:"impot",component:ImpotComponent},
-  {path:"currency",component:CurrencyComponent},
-  {path:"shop",component:ShopComponent},
-  {path:"departement",component:DepartementComponent},
-  {path:"employee",component:EmplacementComponent},
-  {path:"employee/performance/:idEmployee",component:PerformanceComponent},
-  {path:"employee/de/:idEmpDep",component:DepartementDetailComponent},
-  {path:"employee/add/:idEmp/:idDep",component:AddEmployeeComponent},
-  {path:"emplacement",component:EmplacementComponent},
-  {path:"emplacement/add",component:AddEmplacementComponent},
-  {path:"emplacement/edit/:idEmp",component:EditEmplacementComponent},
-  {path:"emplacement/dp/:idEmp",component:EmplacementDetailComponent},
-  {path:"facture/detail/:factid",component:DetailComponent},
-  {path:"dashboard",component:DashboardComponent},
-  {path:"produit/addproduit", component: AddProduitComponent},
-  {path:"produits",component:ProduitComponent},
-  {path:"marques/add-marque", component: AddmarqueComponent},
-  {path:"add-categorie", component: AddCategorieComponent},
-  {path:"marques", component: MarqueComponent},
-  {path:"marques/update-marque/:id", component: UpdatemarqueComponent},
-  {path:"categories", component: CategorieComponent},
-  {path:"categories/update-categorie/:id", component: UpdateCategorieComponent},
-  {path:"produits/update/:id", component: EditproduitComponent},
-  {path:"shop",component: ShopComponent,
-    children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
-      { path: 'about', component: AboutComponent },
-      { path: 'history/:username', component: HistoryComponent },
-      { path: 'history/detail/:idcommande', component: HistoryDetailComponent },
-      { path: 'checkout', component:CheckoutComponent },
-      { path: 'products', component: PrComponent },
-      { path: 'panier', component: PanierComponent}
-    ]},
-  {path:"**",component:ErrorComponent}
-];
+
+  {path: '', component: BackComponent,canActivate:[AuthGuard], data:{roles:['Admin']},
+  children: [
+    {path:'admin',component:AdminComponent},
+    {path:"health",component:HealthComponent},
+    {path:"health/backups",component:BackupsComponent},
+    {path:"facture",component:FactureComponent},
+    {path:"paiement",component:PaiementComponent},
+    {path:"delivery",component:DeliveryComponent},
+    {path:"paiement",component:PaiementComponent},
+    {path:"tracking",component:TrackDeliveryComponent},
+    {path:"checkout",component:CheckoutComponent},
+    {path:"support/:text",component:SupportComponent},
+    {path:"test",component:TestComponent},
+    {path:"Empcalender",component:EmpCallenderComponent},
+    {path:"charge",component:ChargeComponent},
+    {path:"impot",component:ImpotComponent},
+    {path:"currency",component:CurrencyComponent},
+    {path:"shop",component:ShopComponent},
+    {path:"departement",component:DepartementComponent},
+    {path:"employee",component:EmplacementComponent},
+    {path:"employee/performance/:idEmployee",component:PerformanceComponent},
+    {path:"employee/de/:idEmpDep",component:DepartementDetailComponent},
+    {path:"employee/add/:idEmp/:idDep",component:AddEmployeeComponent},
+    {path:"emplacement",component:EmplacementComponent},
+    {path:"emplacement/add",component:AddEmplacementComponent},
+    {path:"emplacement/edit/:idEmp",component:EditEmplacementComponent},
+    {path:"emplacement/dp/:idEmp",component:EmplacementDetailComponent},
+    {path:"facture/detail/:factid",component:DetailComponent},
+    {path:"dashboard",component:DashboardComponent},
+    {path:"produit/addproduit", component: AddProduitComponent},
+    {path:"produits",component:ProduitComponent},
+    {path:"marques/add-marque", component: AddmarqueComponent},
+    {path:"add-categorie", component: AddCategorieComponent},
+    {path:"marques", component: MarqueComponent},
+    {path:"marques/update-marque/:id", component: UpdatemarqueComponent},
+    {path:"categories", component: CategorieComponent},
+    {path:"categories/update-categorie/:id", component: UpdateCategorieComponent},
+    {path:"produits/update/:id", component: EditproduitComponent},
+    
+  ]},
+    {path:'login',component:LoginComponent},
+    {path:'register',component:RegisterComponent},
+    {path:"unauthorized",component:ErrorComponent},
+    {path:"verify/:activateToken",component:VerifyComponent },
+    {path:"reset",component:ResetComponent},
+    {path:"resetSMS",component:ResetSMSComponent},
+    {path:"resetMail",component:ResetMailComponent},
+    {path:"shop",component: ShopComponent,
+      children: [
+        { path: '', redirectTo: 'home', pathMatch: 'full' },
+        { path: 'home', component: HomeComponent },
+        { path: 'about', component: AboutComponent },
+        { path: 'history/:username', component: HistoryComponent },
+        { path: 'history/detail/:idcommande', component: HistoryDetailComponent },
+        { path: 'checkout', component:CheckoutComponent },
+        { path: 'products', component: PrComponent },
+        { path: 'panier', component: PanierComponent}
+      ]},
+    {path:"**",component:ErrorComponent}
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

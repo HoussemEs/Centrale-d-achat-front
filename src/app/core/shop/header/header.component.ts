@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as $ from 'jquery';
+import { AuthService } from 'src/app/shared/services/AuthService';
 import { CurrencyService } from 'src/app/shared/services/currency.service';
 import { PanierService } from 'src/app/shared/services/panier.service';
 declare const jQuery: any;
@@ -19,7 +21,8 @@ export class HeaderComponent {
   exchangeRate: any;
 
 
-  constructor(private panierService:PanierService,private currencyService:CurrencyService){}
+  constructor(private panierService:PanierService,private currencyService:CurrencyService, 
+    private auth:AuthService, private router:Router, private ar:ActivatedRoute){}
   ngOnInit(){
     this.currencyService.getCurrencyList().subscribe(d=> this.clist=d)
     this.username = localStorage.getItem("username");
@@ -138,4 +141,10 @@ export class HeaderComponent {
       }
     });
   }
+
+  logout(){
+    this.auth.clear();
+    this.router.navigate(['/login'],{relativeTo:this.ar})
+  }
+
 }

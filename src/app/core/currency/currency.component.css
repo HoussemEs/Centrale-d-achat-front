@@ -24,3 +24,6 @@
   .inactive {
     color: red;
   }
+  .labelclass{
+    z-index: 0!important;
+  }

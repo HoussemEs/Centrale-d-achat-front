@@ -16,3 +16,7 @@
     display: flex;
     gap: 5px;
   }
+
+  .labelclass{
+    z-index: 0!important;
+  }

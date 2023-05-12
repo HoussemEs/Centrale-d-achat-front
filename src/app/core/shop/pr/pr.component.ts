@@ -61,7 +61,7 @@ export class PrComponent {
 addToCart() {
   // Check if the flag exists in the local storage
   const panierCreated = localStorage.getItem('panierCreated');
-  const userId = "admin123";
+  const userId =localStorage.getItem('username');
 
 
   if (!panierCreated) {

@@ -25,14 +25,18 @@ export class LoginComponent {
     this.userService.authenticate(this.userName, this.userPassword).subscribe(
       // response c'est la response du spring
       (response: any) => {
+        console.log(response);
+        this.authService.setUserType((response.user.role[0].roleName).toLowerCase());
         this.authService.setRoles(response.user.role);
+        this.authService.setUsername(response.user.userName);
         this.authService.setToken(response.jwtToken);
+        this.authService.setFullname(response.user.userFirstName+" "+response.user.userLastName);
     
         const role = response.user.role[0].roleName;
         if (role === 'Admin') {
-          this.router.navigate(['/back/admin']);
+          this.router.navigate(['/admin']);
         } else {
-          this.router.navigate(['/shop']);
+          this.router.navigate(['/shop/products']);
         }
       },
       (error) => {
